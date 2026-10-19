@@ -1,0 +1,170 @@
+history dialog still visible after close click: false
+step A: about to click Add Job
+step B: clicked Add Job
+step C: Remove Job count = 1
+step D: after Remove Job click attempt
+job cancel button count: 1
+cancel button box: { x: 1010, y: 316.75, width: 208, height: 32 }
+=== AFTER CLICKING JOB Cancel BUTTON ===
+- complementary:
+  - img "Plan-B Media"
+  - text: Media Control System
+  - navigation "Main navigation":
+    - link "HOME":
+      - /url: /home
+    - link "DASHBOARD":
+      - /url: /dashboard
+    - link "INVENTORY":
+      - /url: /inventory
+    - link "SALE":
+      - /url: /sale
+    - link "PRODUCTION":
+      - /url: /production
+    - link "CLAIM":
+      - /url: /claim
+    - button "MEDIA APPROVAL":
+      - text: MEDIA APPROVAL
+      - img
+    - link "Dashboard":
+      - /url: /mediaApproval/dashboard
+    - link "Media Ticket":
+      - /url: /mediaApproval/mediaTicket
+    - link "Assign Ticket":
+      - /url: /mediaApproval/assignTicket
+    - link "Verify & Production":
+      - /url: /mediaApproval/productionReview
+    - link "Media Management":
+      - /url: /mediaApproval/mediaManagement
+    - button "REPORT":
+      - text: REPORT
+      - img
+    - link "KPI Dashboard":
+      - /url: /report/kpiDashboard
+    - link "Export Airtime":
+      - /url: /report/exportAirtime
+    - link "Monthly Report":
+      - /url: /report/monthlyReport
+    - link "Audit Log":
+      - /url: /report/auditLog
+    - button "SETTING":
+      - text: SETTING
+      - img
+    - link "User Management":
+      - /url: /settings/userManagement
+    - link "User Group Management":
+      - /url: /settings/userGroupManagement
+    - link "Email Setup":
+      - /url: /settings/emailSetup
+    - link "Email Template":
+      - /url: /settings/emailTemplate
+    - link "UI Kit":
+      - /url: /ui-kit
+    - link "Master Data":
+      - /url: /settings/masterData
+  - text: S' Sajjaporn 'Ben' Suksumranpaisan sajjaporn.su@planbmedia.co.th
+  - button "Log Out":
+    - img
+- main:
+  - button "Toggle sidebar":
+    - img
+  - list "Breadcrumbs":
+    - listitem:
+      - link "Home":
+        - /url: /home
+    - listitem:
+      - link "Media Approval"
+    - listitem:
+      - link "Media Ticket":
+        - /url: /mediaApproval/mediaTicket
+    - listitem:
+      - link "TK-26090085" [disabled]
+  - heading "QA Test Product" [level=1]
+  - paragraph: QA Test Client 1789987002570 · Manual Entry
+  - text: Assign
+  - link "Airtime Allocate":
+    - /url: /mediaApproval/airtimeAllocate/TK-26090085
+    - img
+    - text: Airtime Allocate
+  - button "History":
+    - img
+    - text: History
+  - button "Back":
+    - img
+    - text: Back
+  - group:
+    - img
+    - heading "Ticket Information" [level=3]
+    - text: Ticket Ticket No TK-26090085 Quotation No. — None (Manual Entry)
+    - img
+    - text: Manual Entry — No Quotation Yet This ticket was created manually. Search for a Quotation from Salesforce to sync the data.
+    - img
+    - textbox "ค้นหา PB202604521"
+    - button "Sync"
+    - text: The system will automatically pull Client, Product, and Period from Salesforce. Sales Person Sajjaporn 'Ben' Suksumranpaisan CS Support — Customer & Media Client QA Test Client 1789987002570 Product QA Test Product Media Group Digital Media Type Plan B TV Schedule Contract Start 01/09/2026 Contract End 28/09/2026 Contract Period
+    - img
+    - text: 28 วัน
+  - heading "Jobs" [level=3]
+  - text: 1 job
+  - button "Add Job":
+    - img
+    - text: Add Job
+  - text: P JOB-26090085-01 PlanBTV_80Red Assign
+  - term: Period
+  - definition: 01/09/2026 - 21/09/2026
+  - term: Versions
+  - definition: "1"
+  - term: Max Prove
+  - definition: —
+  - term: Nickname
+  - definition: —
+  - term: Duration
+  - definition: 7.5 seconds
+  - term: Assigned To
+  - definition: Unassigned
+  - term: Assign Date
+  - definition: "-"
+  - region "Material attachments":
+    - img
+    - text: Material 1
+    - region "Attachment gallery":
+      - button "Material":
+        - img "Material"
+      - text: Material
+      - link "Download Material":
+        - /url: https://example.com/material.jpg
+        - img
+  - region "Brief attachments":
+    - img
+    - text: Brief
+    - button "Brief https://example.com/brief.pdf":
+      - img
+      - text: Brief https://example.com/brief.pdf
+  - button "Cancel":
+    - img
+    - text: Cancel
+- alert
+- button "Dismiss"
+- dialog "Cancel Job":
+  - img
+  - text: JOB JOB-26090085-01
+  - heading "Cancel Job" [level=2]
+  - paragraph: This cancels only this Job. The Ticket and other Jobs keep their current status.
+  - button "Close":
+    - img
+  - text: Cancel Reason *
+  - combobox "Cancel Reason *":
+    - option "— Select Reason —" [selected]
+    - option "Customer changed material spec"
+    - option "Media not available in period"
+    - option "Production timeline missed"
+    - option "Landlord rejected"
+    - option "Replaced by new job"
+    - option "Wrong job created"
+    - option "Other"
+  - text: Remark
+  - textbox "Remark":
+    - /placeholder: Additional details (optional)
+  - button "Close"
+  - button "Confirm Cancel":
+    - img
+    - text: Confirm Cancel

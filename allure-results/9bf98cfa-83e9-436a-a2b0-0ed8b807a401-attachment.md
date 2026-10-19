@@ -1,0 +1,813 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Project\Media Control\TicketDetail\explore.spec.ts >> explore ticket detail page
+- Location: Project\Media Control\TicketDetail\explore.spec.ts:4:5
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - alert [ref=e2]
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - generic [ref=e6]:
+        - img "Plan-B Media" [ref=e8]
+        - generic [ref=e9]: Media Control System
+      - navigation "Main navigation" [ref=e10]:
+        - link "HOME" [ref=e11] [cursor=pointer]:
+          - /url: /home
+          - img [ref=e13]
+          - generic [ref=e15]: HOME
+        - link "DASHBOARD" [ref=e16] [cursor=pointer]:
+          - /url: /dashboard
+          - img [ref=e18]
+          - generic [ref=e20]: DASHBOARD
+        - link "INVENTORY" [ref=e21] [cursor=pointer]:
+          - /url: /inventory
+          - img [ref=e23]
+          - generic [ref=e25]: INVENTORY
+        - link "SALE" [ref=e26] [cursor=pointer]:
+          - /url: /sale
+          - img [ref=e28]
+          - generic [ref=e30]: SALE
+        - link "PRODUCTION" [ref=e31] [cursor=pointer]:
+          - /url: /production
+          - img [ref=e33]
+          - generic [ref=e35]: PRODUCTION
+        - link "CLAIM" [ref=e36] [cursor=pointer]:
+          - /url: /claim
+          - img [ref=e38]
+          - generic [ref=e40]: CLAIM
+        - generic [ref=e41]:
+          - button "MEDIA APPROVAL" [ref=e42] [cursor=pointer]:
+            - img [ref=e44]
+            - generic [ref=e46]: MEDIA APPROVAL
+            - img [ref=e47]
+          - generic [ref=e49]:
+            - link "Dashboard" [ref=e50] [cursor=pointer]:
+              - /url: /mediaApproval/dashboard
+              - generic [ref=e52]: Dashboard
+            - link "Media Ticket" [ref=e53] [cursor=pointer]:
+              - /url: /mediaApproval/mediaTicket
+              - generic [ref=e55]: Media Ticket
+            - link "Assign Ticket" [ref=e56] [cursor=pointer]:
+              - /url: /mediaApproval/assignTicket
+              - generic [ref=e58]: Assign Ticket
+            - link "Verify & Production" [ref=e59] [cursor=pointer]:
+              - /url: /mediaApproval/productionReview
+              - generic [ref=e61]: Verify & Production
+            - link "Media Management" [ref=e62] [cursor=pointer]:
+              - /url: /mediaApproval/mediaManagement
+              - generic [ref=e64]: Media Management
+        - generic [ref=e65]:
+          - button "REPORT" [ref=e66] [cursor=pointer]:
+            - img [ref=e68]
+            - generic [ref=e70]: REPORT
+            - img [ref=e71]
+          - generic [ref=e73]:
+            - link "KPI Dashboard" [ref=e74] [cursor=pointer]:
+              - /url: /report/kpiDashboard
+              - generic [ref=e76]: KPI Dashboard
+            - link "Export Airtime" [ref=e77] [cursor=pointer]:
+              - /url: /report/exportAirtime
+              - generic [ref=e79]: Export Airtime
+            - link "Monthly Report" [ref=e80] [cursor=pointer]:
+              - /url: /report/monthlyReport
+              - generic [ref=e82]: Monthly Report
+            - link "Audit Log" [ref=e83] [cursor=pointer]:
+              - /url: /report/auditLog
+              - generic [ref=e85]: Audit Log
+        - generic [ref=e86]:
+          - button "SETTING" [ref=e87] [cursor=pointer]:
+            - img [ref=e89]
+            - generic [ref=e91]: SETTING
+            - img [ref=e92]
+          - generic [ref=e94]:
+            - link "User Management" [ref=e95] [cursor=pointer]:
+              - /url: /settings/userManagement
+              - generic [ref=e97]: User Management
+            - link "User Group Management" [ref=e98] [cursor=pointer]:
+              - /url: /settings/userGroupManagement
+              - generic [ref=e100]: User Group Management
+            - link "Email Setup" [ref=e101] [cursor=pointer]:
+              - /url: /settings/emailSetup
+              - generic [ref=e103]: Email Setup
+            - link "Email Template" [ref=e104] [cursor=pointer]:
+              - /url: /settings/emailTemplate
+              - generic [ref=e106]: Email Template
+            - link "UI Kit" [ref=e107] [cursor=pointer]:
+              - /url: /ui-kit
+              - generic [ref=e109]: UI Kit
+            - link "Master Data" [ref=e110] [cursor=pointer]:
+              - /url: /settings/masterData
+              - generic [ref=e112]: Master Data
+      - generic [ref=e114]:
+        - generic [ref=e115]: S'
+        - generic [ref=e116]:
+          - generic [ref=e117]: Sajjaporn 'Ben' Suksumranpaisan
+          - generic [ref=e118]: sajjaporn.su@planbmedia.co.th
+        - button "Log Out" [ref=e119] [cursor=pointer]:
+          - img [ref=e120]
+    - main [ref=e122]:
+      - generic [ref=e123]:
+        - button "Toggle sidebar" [ref=e124] [cursor=pointer]:
+          - img
+        - list "Breadcrumbs" [ref=e125]:
+          - listitem [ref=e126]:
+            - link "Home" [ref=e127] [cursor=pointer]:
+              - /url: /home
+            - img [ref=e128]
+          - listitem [ref=e130]:
+            - link "Dashboard" [disabled]:
+              - generic: Dashboard
+      - generic [ref=e133]:
+        - generic [ref=e136]:
+          - generic [ref=e137]:
+            - generic [ref=e138]: THURSDAY, SEP 24, 2026
+            - heading "Good afternoon, ravewan." [level=1] [ref=e139]
+            - paragraph [ref=e140]:
+              - text: Your inventory is 78.3% full this month — above forecast. Copilot flagged
+              - generic [ref=e141]: 2 anomalies
+              - text: and drafted 3 reports for you.
+            - generic [ref=e142]:
+              - button [ref=e143] [cursor=pointer]:
+                - img [ref=e144]
+              - button [ref=e146] [cursor=pointer]:
+                - img [ref=e147]
+          - generic [ref=e149]:
+            - generic [ref=e150]: Live signal
+            - generic [ref=e151]:
+              - img [ref=e153]
+              - generic [ref=e155]:
+                - generic [ref=e156]: Rama IX LED
+                - generic [ref=e157]: 100% sold-out through May
+              - generic [ref=e158]: +฿2.4M uplift possible
+            - generic [ref=e159]:
+              - img [ref=e161]
+              - generic [ref=e163]:
+                - generic [ref=e164]: L-BK-BRN-3 install
+                - generic [ref=e165]: SLA at risk
+              - generic [ref=e166]: Crew velocity −23% vs baseline
+            - generic [ref=e167]:
+              - img [ref=e169]
+              - generic [ref=e171]:
+                - generic [ref=e172]: AIS spend trajectory
+                - generic [ref=e173]: +18% YoY
+              - generic [ref=e174]: Upsell window opens May 5
+        - generic [ref=e175]:
+          - generic [ref=e176]:
+            - generic [ref=e177]:
+              - generic [ref=e178]:
+                - generic [ref=e179]:
+                  - img [ref=e180]
+                  - generic [ref=e182]: Revenue
+                - generic [ref=e183]: ฿128.4M
+              - img [ref=e184]
+            - generic [ref=e188]:
+              - img [ref=e190]
+              - generic [ref=e192]: vs last 30d
+          - generic [ref=e193]:
+            - generic [ref=e194]:
+              - generic [ref=e195]:
+                - generic [ref=e196]:
+                  - img [ref=e197]
+                  - generic [ref=e199]: Occupancy
+                - generic [ref=e200]: 78.3%
+              - img [ref=e201]
+            - generic [ref=e205]:
+              - img [ref=e207]
+              - generic [ref=e209]: vs last 30d
+          - generic [ref=e210]:
+            - generic [ref=e211]:
+              - generic [ref=e212]:
+                - generic [ref=e213]:
+                  - img [ref=e214]
+                  - generic [ref=e216]: Bookings
+                - generic [ref=e217]: "142"
+              - img [ref=e218]
+            - generic [ref=e222]:
+              - img [ref=e224]
+              - generic [ref=e226]: vs last 30d
+          - generic [ref=e227]:
+            - generic [ref=e228]:
+              - generic [ref=e229]:
+                - generic [ref=e230]:
+                  - img [ref=e231]
+                  - generic [ref=e233]: Media Queue
+                - generic [ref=e234]: "28"
+              - img [ref=e235]
+            - generic [ref=e239]:
+              - img [ref=e241]
+              - generic [ref=e243]: vs last 30d
+        - generic [ref=e244]:
+          - generic [ref=e245]:
+            - generic [ref=e246]:
+              - generic [ref=e247]:
+                - heading "Inventory Occupancy — 2026" [level=3] [ref=e248]
+                - paragraph [ref=e249]: Daily fill rate % — hover a cell for detail. AI projects Q2 +6.4% overall.
+              - generic [ref=e250]:
+                - generic [ref=e251]:
+                  - button "%" [ref=e252] [cursor=pointer]
+                  - button "฿" [ref=e253] [cursor=pointer]
+                - button "Export" [ref=e254] [cursor=pointer]:
+                  - img [ref=e255]
+                  - generic [ref=e257]: Export
+            - generic [ref=e259]:
+              - generic [ref=e260]:
+                - generic [ref=e261]: Jan
+                - generic [ref=e262]: Feb
+                - generic [ref=e263]: Mar
+                - generic [ref=e264]: Apr
+                - generic [ref=e265]: May
+                - generic [ref=e266]: Jun
+                - generic [ref=e267]: Jul
+                - generic [ref=e268]: Aug
+                - generic [ref=e269]: Sep
+                - generic [ref=e270]: Oct
+                - generic [ref=e271]: Nov
+                - generic [ref=e272]: Dec
+                - generic [ref=e273]: Avg
+              - generic [ref=e274]:
+                - generic [ref=e275]: S-NCM-5
+                - generic [ref=e276]: "80"
+                - generic [ref=e277]: "86"
+                - generic [ref=e278]: "84"
+                - generic [ref=e279]: "92"
+                - generic [ref=e280]: "88"
+                - generic [ref=e281]: "76"
+                - generic [ref=e282]: "72"
+                - generic [ref=e283]: "68"
+                - generic [ref=e284]: "76"
+                - generic [ref=e285]: "80"
+                - generic [ref=e286]: "84"
+                - generic [ref=e287]: "88"
+                - generic [ref=e288]: 81%
+              - generic [ref=e289]:
+                - generic [ref=e290]: L-BK-LSU-2
+                - generic [ref=e291]: "66"
+                - generic [ref=e292]: "72"
+                - generic [ref=e293]: "70"
+                - generic [ref=e294]: "78"
+                - generic [ref=e295]: "74"
+                - generic [ref=e296]: "62"
+                - generic [ref=e297]: "58"
+                - generic [ref=e298]: "54"
+                - generic [ref=e299]: "62"
+                - generic [ref=e300]: "66"
+                - generic [ref=e301]: "70"
+                - generic [ref=e302]: "74"
+                - generic [ref=e303]: 67%
+              - generic [ref=e304]:
+                - generic [ref=e305]: BFV-UAH-04
+                - generic [ref=e306]: "52"
+                - generic [ref=e307]: "58"
+                - generic [ref=e308]: "56"
+                - generic [ref=e309]: "64"
+                - generic [ref=e310]: "60"
+                - generic [ref=e311]: "48"
+                - generic [ref=e312]: "44"
+                - generic [ref=e313]: "40"
+                - generic [ref=e314]: "48"
+                - generic [ref=e315]: "52"
+                - generic [ref=e316]: "56"
+                - generic [ref=e317]: "60"
+                - generic [ref=e318]: 53%
+              - generic [ref=e319]:
+                - generic [ref=e320]: M-UK-HM-15
+                - generic [ref=e321]: "76"
+                - generic [ref=e322]: "82"
+                - generic [ref=e323]: "80"
+                - generic [ref=e324]: "88"
+                - generic [ref=e325]: "84"
+                - generic [ref=e326]: "72"
+                - generic [ref=e327]: "68"
+                - generic [ref=e328]: "64"
+                - generic [ref=e329]: "72"
+                - generic [ref=e330]: "76"
+                - generic [ref=e331]: "80"
+                - generic [ref=e332]: "84"
+                - generic [ref=e333]: 77%
+              - generic [ref=e334]:
+                - generic [ref=e335]: X-CAYA-FY-1
+                - generic [ref=e336]: "88"
+                - generic [ref=e337]: "94"
+                - generic [ref=e338]: "92"
+                - generic [ref=e339]: "100"
+                - generic [ref=e340]: "96"
+                - generic [ref=e341]: "84"
+                - generic [ref=e342]: "80"
+                - generic [ref=e343]: "76"
+                - generic [ref=e344]: "84"
+                - generic [ref=e345]: "88"
+                - generic [ref=e346]: "92"
+                - generic [ref=e347]: "96"
+                - generic [ref=e348]: 89%
+              - generic [ref=e349]:
+                - generic [ref=e350]: L-BK-BRN-3
+                - generic [ref=e351]: "59"
+                - generic [ref=e352]: "65"
+                - generic [ref=e353]: "63"
+                - generic [ref=e354]: "71"
+                - generic [ref=e355]: "67"
+                - generic [ref=e356]: "55"
+                - generic [ref=e357]: "51"
+                - generic [ref=e358]: "47"
+                - generic [ref=e359]: "55"
+                - generic [ref=e360]: "59"
+                - generic [ref=e361]: "63"
+                - generic [ref=e362]: "67"
+                - generic [ref=e363]: 60%
+              - generic [ref=e364]:
+                - generic [ref=e365]: CRM-BK-BRK
+                - generic [ref=e366]: "43"
+                - generic [ref=e367]: "49"
+                - generic [ref=e368]: "47"
+                - generic [ref=e369]: "55"
+                - generic [ref=e370]: "51"
+                - generic [ref=e371]: "39"
+                - generic [ref=e372]: "35"
+                - generic [ref=e373]: "31"
+                - generic [ref=e374]: "39"
+                - generic [ref=e375]: "43"
+                - generic [ref=e376]: "47"
+                - generic [ref=e377]: "51"
+                - generic [ref=e378]: 44%
+              - generic [ref=e379]:
+                - generic [ref=e380]: TH-SIL-09
+                - generic [ref=e381]: "83"
+                - generic [ref=e382]: "89"
+                - generic [ref=e383]: "87"
+                - generic [ref=e384]: "95"
+                - generic [ref=e385]: "91"
+                - generic [ref=e386]: "79"
+                - generic [ref=e387]: "75"
+                - generic [ref=e388]: "71"
+                - generic [ref=e389]: "79"
+                - generic [ref=e390]: "83"
+                - generic [ref=e391]: "87"
+                - generic [ref=e392]: "91"
+                - generic [ref=e393]: 84%
+              - generic [ref=e394]:
+                - generic [ref=e395]: TH-SUM-22
+                - generic [ref=e396]: "71"
+                - generic [ref=e397]: "77"
+                - generic [ref=e398]: "75"
+                - generic [ref=e399]: "83"
+                - generic [ref=e400]: "79"
+                - generic [ref=e401]: "67"
+                - generic [ref=e402]: "63"
+                - generic [ref=e403]: "59"
+                - generic [ref=e404]: "67"
+                - generic [ref=e405]: "71"
+                - generic [ref=e406]: "75"
+                - generic [ref=e407]: "79"
+                - generic [ref=e408]: 72%
+              - generic [ref=e409]:
+                - generic [ref=e410]: CM-NOR-01
+                - generic [ref=e411]: "30"
+                - generic [ref=e412]: "36"
+                - generic [ref=e413]: "34"
+                - generic [ref=e414]: "42"
+                - generic [ref=e415]: "38"
+                - generic [ref=e416]: "26"
+                - generic [ref=e417]: "22"
+                - generic [ref=e418]: "18"
+                - generic [ref=e419]: "26"
+                - generic [ref=e420]: "30"
+                - generic [ref=e421]: "34"
+                - generic [ref=e422]: "38"
+                - generic [ref=e423]: 31%
+            - generic [ref=e424]:
+              - generic [ref=e425]: Low
+              - generic [ref=e432]: High
+              - img [ref=e434]
+          - generic [ref=e436]:
+            - generic [ref=e437]:
+              - img [ref=e439]
+              - generic [ref=e441]:
+                - heading "AI Insights" [level=3] [ref=e442]
+                - paragraph [ref=e443]: Updated 2 min ago
+            - generic [ref=e444]:
+              - generic [ref=e445]:
+                - generic [ref=e446]:
+                  - generic [ref=e447]: Occupancy forecast — May
+                  - generic [ref=e448]: 92%
+                - paragraph [ref=e449]: Northern corridor (L-BK-LSU-2, CM-NOR-01) trending +14% vs Apr. Recommend +8% rate uplift on LED.
+                - generic [ref=e450]:
+                  - button "Take action" [ref=e451] [cursor=pointer]
+                  - generic [ref=e452]: ·
+                  - button "Dismiss" [ref=e453] [cursor=pointer]
+              - generic [ref=e454]:
+                - generic [ref=e455]:
+                  - generic [ref=e456]: Demand signal
+                  - generic [ref=e457]: 87%
+                - paragraph [ref=e458]: 3 briefs (AIS, True, SCB) target Silom 25-34 commuters. Cluster BTS/MRT inventory on next proposal.
+                - generic [ref=e459]:
+                  - button "Take action" [ref=e460] [cursor=pointer]
+                  - generic [ref=e461]: ·
+                  - button "Dismiss" [ref=e462] [cursor=pointer]
+              - generic [ref=e463]:
+                - generic [ref=e464]:
+                  - generic [ref=e465]: Anomaly
+                  - generic [ref=e466]: 81%
+                - paragraph [ref=e467]: Install SLA on L-BK-BRN-3 likely to breach by 3h based on crew velocity.
+                - generic [ref=e468]:
+                  - button "Take action" [ref=e469] [cursor=pointer]
+                  - generic [ref=e470]: ·
+                  - button "Dismiss" [ref=e471] [cursor=pointer]
+              - generic [ref=e472]:
+                - generic [ref=e473]:
+                  - generic [ref=e474]: Creative risk
+                  - generic [ref=e475]: 74%
+                - paragraph [ref=e476]: SCB Easy 4.0 v4 has 62% QC score — typography mismatch + logo registration.
+                - generic [ref=e477]:
+                  - button "Take action" [ref=e478] [cursor=pointer]
+                  - generic [ref=e479]: ·
+                  - button "Dismiss" [ref=e480] [cursor=pointer]
+        - generic [ref=e481]:
+          - generic [ref=e482]:
+            - generic [ref=e483]:
+              - generic [ref=e484]:
+                - heading "Inventory Map — Thailand" [level=3] [ref=e485]
+                - paragraph [ref=e486]: 12 assets · click a pin for details
+              - generic [ref=e487]:
+                - button "All" [ref=e488] [cursor=pointer]
+                - button "Live" [ref=e489] [cursor=pointer]
+                - button "Maint." [ref=e490] [cursor=pointer]
+                - button "Vacant" [ref=e491] [cursor=pointer]
+            - generic [ref=e492]:
+              - img [ref=e493]
+              - button "S-NCM-5 · 92%" [ref=e495] [cursor=pointer]
+              - button "L-BK-LSU-2 · 78%" [ref=e496] [cursor=pointer]
+              - button "BFV-UAH-04 · 64%" [ref=e497] [cursor=pointer]
+              - button "M-UK-HM-15 · 88%" [ref=e498] [cursor=pointer]
+              - button "X-CAYA-FY-1 · 100%" [ref=e499] [cursor=pointer]
+              - button "L-BK-BRN-3 · Maint" [ref=e500] [cursor=pointer]
+              - button "CRM-BK-BRK · 55%" [ref=e501] [cursor=pointer]
+              - button "TH-SIL-09 · 95%" [ref=e502] [cursor=pointer]
+              - button "TH-SUM-22 · 83%" [ref=e503] [cursor=pointer]
+              - button "CM-NOR-01 · Vacant" [ref=e504] [cursor=pointer]
+              - button "PK-PHK-03 · 60%" [ref=e505] [cursor=pointer]
+              - button "KR-KON-07 · 74%" [ref=e506] [cursor=pointer]
+              - generic [ref=e507]:
+                - generic [ref=e508]:
+                  - generic [ref=e509]: Total sites
+                  - generic [ref=e510]: "12"
+                - generic [ref=e511]:
+                  - generic [ref=e512]: Live
+                  - generic [ref=e514]: "9"
+                - generic [ref=e515]:
+                  - generic [ref=e516]: Maint.
+                  - generic [ref=e518]: "1"
+                - generic [ref=e519]:
+                  - generic [ref=e520]: Vacant
+                  - generic [ref=e522]: "1"
+          - generic [ref=e523]:
+            - generic [ref=e524]:
+              - generic [ref=e525]:
+                - heading "Sales Pipeline" [level=3] [ref=e526]
+                - paragraph [ref=e527]: ฿256.3M total · Q2 2026
+              - generic [ref=e528]: On track
+            - generic [ref=e530]:
+              - generic [ref=e532]:
+                - generic [ref=e533]:
+                  - generic [ref=e534]: Brief
+                  - generic [ref=e535]: "42"
+                - generic [ref=e536]: ฿18.4M
+              - generic [ref=e540]:
+                - generic [ref=e541]:
+                  - generic [ref=e542]: Proposal
+                  - generic [ref=e543]: "28"
+                - generic [ref=e544]: ฿34.2M
+              - generic [ref=e548]:
+                - generic [ref=e549]:
+                  - generic [ref=e550]: Negotiate
+                  - generic [ref=e551]: "17"
+                - generic [ref=e552]: ฿48.6M
+              - generic [ref=e556]:
+                - generic [ref=e557]:
+                  - generic [ref=e558]: Confirmed
+                  - generic [ref=e559]: "12"
+                - generic [ref=e560]: ฿63.1M
+              - generic [ref=e564]:
+                - generic [ref=e565]:
+                  - generic [ref=e566]: Live
+                  - generic [ref=e567]: "34"
+                - generic [ref=e568]: ฿92M
+            - generic [ref=e571]:
+              - generic [ref=e572]:
+                - generic [ref=e573]: Forecast close
+                - generic [ref=e574]: ฿76.2M
+                - generic [ref=e575]: +18% vs Q1
+              - generic [ref=e576]:
+                - generic [ref=e577]: Avg deal size
+                - generic [ref=e578]: ฿1.94M
+                - generic [ref=e579]: 133 deals
+        - generic [ref=e580]:
+          - generic [ref=e581]:
+            - generic [ref=e582]:
+              - generic [ref=e583]:
+                - heading "Today's Tasks" [level=3] [ref=e584]
+                - paragraph [ref=e585]: 6 remaining
+              - generic [ref=e586]: Today
+            - generic [ref=e587]:
+              - button "Review AIS 5G creative v3 Today 17:00 · Parima high" [ref=e588] [cursor=pointer]:
+                - generic [ref=e590]:
+                  - generic [ref=e591]: Review AIS 5G creative v3
+                  - generic [ref=e592]:
+                    - generic [ref=e593]: Today 17:00
+                    - generic [ref=e594]: ·
+                    - generic [ref=e595]: Parima
+                - generic [ref=e596]: high
+              - button "Approve rate card Q2 — Northern Today 18:30 · Warin high" [ref=e597] [cursor=pointer]:
+                - generic [ref=e599]:
+                  - generic [ref=e600]: Approve rate card Q2 — Northern
+                  - generic [ref=e601]:
+                    - generic [ref=e602]: Today 18:30
+                    - generic [ref=e603]: ·
+                    - generic [ref=e604]: Warin
+                - generic [ref=e605]: high
+              - button "Install LED panel — L-BK-BRN-3 Tomorrow · Production med" [ref=e606] [cursor=pointer]:
+                - generic [ref=e608]:
+                  - generic [ref=e609]: Install LED panel — L-BK-BRN-3
+                  - generic [ref=e610]:
+                    - generic [ref=e611]: Tomorrow
+                    - generic [ref=e612]: ·
+                    - generic [ref=e613]: Production
+                - generic [ref=e614]: med
+              - 'button "Respond to claim #1284 Today 15:00 · Suchada high" [ref=e615] [cursor=pointer]':
+                - generic [ref=e617]:
+                  - generic [ref=e618]: "Respond to claim #1284"
+                  - generic [ref=e619]:
+                    - generic [ref=e620]: Today 15:00
+                    - generic [ref=e621]: ·
+                    - generic [ref=e622]: Suchada
+                - generic [ref=e623]: high
+              - button "Site inspection photos — Phuket Thu · Field Ops low" [ref=e624] [cursor=pointer]:
+                - generic [ref=e626]:
+                  - generic [ref=e627]: Site inspection photos — Phuket
+                  - generic [ref=e628]:
+                    - generic [ref=e629]: Thu
+                    - generic [ref=e630]: ·
+                    - generic [ref=e631]: Field Ops
+                - generic [ref=e632]: low
+              - button "Finalize Toyota Yaris proposal Fri · Natcha med" [ref=e633] [cursor=pointer]:
+                - generic [ref=e635]:
+                  - generic [ref=e636]: Finalize Toyota Yaris proposal
+                  - generic [ref=e637]:
+                    - generic [ref=e638]: Fri
+                    - generic [ref=e639]: ·
+                    - generic [ref=e640]: Natcha
+                - generic [ref=e641]: med
+          - generic [ref=e642]:
+            - generic [ref=e643]:
+              - generic [ref=e644]:
+                - heading "Activity Stream" [level=3] [ref=e645]
+                - paragraph [ref=e646]: Across all modules · last 3 hours
+              - generic [ref=e647]: Live
+            - generic [ref=e651]:
+              - generic [ref=e652]:
+                - img [ref=e654]
+                - generic [ref=e656]:
+                  - generic [ref=e657]: Natcha P. confirmed booking TH-SIL-09 · AIS 5G Mar
+                  - generic [ref=e658]: 2m
+              - generic [ref=e659]:
+                - img [ref=e661]
+                - generic [ref=e663]:
+                  - generic [ref=e664]: AI Assistant flagged anomaly L-BK-BRN-3 — install SLA at risk
+                  - generic [ref=e665]: 8m
+              - generic [ref=e666]:
+                - img [ref=e668]
+                - generic [ref=e670]:
+                  - generic [ref=e671]: Kittipong S. uploaded artwork Toyota Yaris · Rama IX
+                  - generic [ref=e672]: 14m
+              - generic [ref=e673]:
+                - img [ref=e675]
+                - generic [ref=e677]:
+                  - generic [ref=e678]: Parima L. approved creative TrueMove · Silom
+                  - generic [ref=e679]: 22m
+              - generic [ref=e680]:
+                - img [ref=e682]
+                - generic [ref=e684]:
+                  - generic [ref=e685]: Production install complete M-UK-HM-15 (Rama IX)
+                  - generic [ref=e686]: 41m
+              - generic [ref=e687]:
+                - img [ref=e689]
+                - generic [ref=e691]:
+                  - generic [ref=e692]: "Suchada T. opened claim #1284 LED panel flicker — Lat Phrao"
+                  - generic [ref=e693]: 1h
+              - generic [ref=e694]:
+                - img [ref=e696]
+                - generic [ref=e698]:
+                  - generic [ref=e699]: Warin K. sent proposal Central Retail · Q2 cover buy
+                  - generic [ref=e700]: 2h
+              - generic [ref=e701]:
+                - img [ref=e703]
+                - generic [ref=e705]:
+                  - generic [ref=e706]: AI Assistant generated monthly report March 2026 — Occupancy
+                  - generic [ref=e707]: 3h
+        - generic [ref=e708]:
+          - generic [ref=e709]:
+            - generic [ref=e710]:
+              - generic [ref=e711]:
+                - heading "Media Approval" [level=3] [ref=e712]
+                - paragraph [ref=e713]: AI Computer Vision QC
+              - generic [ref=e714]: 4 open
+            - generic [ref=e715]:
+              - generic [ref=e716] [cursor=pointer]:
+                - img [ref=e718]
+                - generic [ref=e720]:
+                  - generic [ref=e721]: 5G Unlimited — Hero KV
+                  - generic [ref=e722]: AIS · v3
+                - generic [ref=e723]:
+                  - generic [ref=e724]: QC 94
+                  - generic [ref=e725]: pending-review
+              - generic [ref=e726] [cursor=pointer]:
+                - img [ref=e728]
+                - generic [ref=e730]:
+                  - generic [ref=e731]: Summer Promo — Rama IX
+                  - generic [ref=e732]: TrueMove H · v1
+                - generic [ref=e733]:
+                  - generic [ref=e734]: QC 71
+                  - generic [ref=e735]: ai-check
+              - generic [ref=e736] [cursor=pointer]:
+                - img [ref=e738]
+                - generic [ref=e740]:
+                  - generic [ref=e741]: Yaris Cross 2026 Launch
+                  - generic [ref=e742]: Toyota · v2
+                - generic [ref=e743]:
+                  - generic [ref=e744]: QC 98
+                  - generic [ref=e745]: approved
+              - generic [ref=e746] [cursor=pointer]:
+                - img [ref=e748]
+                - generic [ref=e750]:
+                  - generic [ref=e751]: Mid-Year Sale — Silom
+                  - generic [ref=e752]: Central · v1
+                - generic [ref=e753]:
+                  - generic [ref=e754]: QC 86
+                  - generic [ref=e755]: pending-review
+          - generic [ref=e756]:
+            - generic [ref=e757]:
+              - generic [ref=e758]:
+                - heading "Production Schedule" [level=3] [ref=e759]
+                - paragraph [ref=e760]: Next 5 days
+              - generic [ref=e761]: 2 live
+            - generic [ref=e762]:
+              - generic [ref=e763]:
+                - generic [ref=e764]: Tue
+                - generic [ref=e765]: "22"
+              - generic [ref=e766]:
+                - generic [ref=e767]: Wed
+                - generic [ref=e768]: "23"
+              - generic [ref=e769]:
+                - generic [ref=e770]: Thu
+                - generic [ref=e771]: "24"
+              - generic [ref=e772]:
+                - generic [ref=e773]: Fri
+                - generic [ref=e774]: "25"
+              - generic [ref=e775]:
+                - generic [ref=e776]: Sat
+                - generic [ref=e777]: "26"
+            - generic [ref=e778]:
+              - generic [ref=e779]:
+                - generic [ref=e780]: TH-SIL-09
+                - generic [ref=e781]:
+                  - generic [ref=e782]: Install — AIS 5G vinyl
+                  - generic [ref=e783]: Team A · Apr 22
+                - generic [ref=e784]: done
+              - generic [ref=e786]:
+                - generic [ref=e787]: M-UK-HM
+                - generic [ref=e788]:
+                  - generic [ref=e789]: Digital content swap
+                  - generic [ref=e790]: Team B · Apr 22
+                - generic [ref=e791]: done
+              - generic [ref=e793]:
+                - generic [ref=e794]: L-BK-BRN
+                - generic [ref=e795]:
+                  - generic [ref=e796]: LED module replacement
+                  - generic [ref=e797]: Team C · Apr 22–23
+                - generic [ref=e801]: inprog
+              - generic [ref=e803]:
+                - generic [ref=e804]: CM-NOR
+                - generic [ref=e805]:
+                  - generic [ref=e806]: New install — Chiang Mai
+                  - generic [ref=e807]: Team D · Apr 23–24
+                - generic [ref=e811]: inprog
+              - generic [ref=e813]:
+                - generic [ref=e814]: BFV-UAH
+                - generic [ref=e815]:
+                  - generic [ref=e816]: Re-tension vinyl
+                  - generic [ref=e817]: Team A · Apr 24
+                - generic [ref=e818]: scheduled
+          - generic [ref=e819]:
+            - generic [ref=e820]:
+              - generic [ref=e821]:
+                - heading "Active Claims" [level=3] [ref=e822]
+                - paragraph [ref=e823]: SLA status
+              - generic [ref=e824]: 3 open
+            - generic [ref=e825]:
+              - generic [ref=e826]:
+                - generic [ref=e827]:
+                  - generic [ref=e828]:
+                    - generic [ref=e829]: "#1284"
+                    - generic [ref=e830]: high
+                  - generic [ref=e832]: 2h ago
+                - generic [ref=e833]: LED panel flicker on column 3
+                - generic [ref=e834]: TrueMove H · SLA 4h
+              - generic [ref=e835]:
+                - generic [ref=e836]:
+                  - generic [ref=e837]:
+                    - generic [ref=e838]: "#1283"
+                    - generic [ref=e839]: med
+                  - generic [ref=e841]: 5h ago
+                - generic [ref=e842]: Vinyl peel — corner
+                - generic [ref=e843]: AIS · SLA 24h
+              - generic [ref=e844]:
+                - generic [ref=e845]:
+                  - generic [ref=e846]:
+                    - generic [ref=e847]: "#1282"
+                    - generic [ref=e848]: crit
+                  - generic [ref=e850]: 1h ago
+                - generic [ref=e851]: Content not playing — 02:00 slot
+                - generic [ref=e852]: Central · SLA 1h
+              - generic [ref=e853]:
+                - generic [ref=e854]:
+                  - generic [ref=e855]:
+                    - generic [ref=e856]: "#1281"
+                    - generic [ref=e857]: med
+                  - generic [ref=e859]: 8h ago
+                - generic [ref=e860]: Lighting fixture out
+                - generic [ref=e861]: Toyota · SLA 8h · resolved
+              - generic [ref=e862]:
+                - generic [ref=e863]:
+                  - generic [ref=e864]:
+                    - generic [ref=e865]: "#1280"
+                    - generic [ref=e866]: low
+                  - generic [ref=e867]: 1d ago
+                - generic [ref=e868]: Scratched surface reported
+                - generic [ref=e869]: SCB · SLA 48h · resolved
+        - generic [ref=e870]:
+          - generic [ref=e871]:
+            - generic [ref=e872]:
+              - heading "Top Clients — YTD" [level=3] [ref=e873]
+              - paragraph [ref=e874]: Revenue contribution · click to drill into account
+            - generic [ref=e875]:
+              - button "YTD" [ref=e876] [cursor=pointer]
+              - button "QTD" [ref=e877] [cursor=pointer]
+              - button "MTD" [ref=e878] [cursor=pointer]
+          - generic [ref=e879]:
+            - generic [ref=e880]:
+              - generic [ref=e881]:
+                - generic [ref=e882]: AI
+                - generic [ref=e884]: AIS Thailand
+              - generic [ref=e885]: ฿24.8M
+              - generic [ref=e888]: 18 campaigns
+            - generic [ref=e889]:
+              - generic [ref=e890]:
+                - generic [ref=e891]: TH
+                - generic [ref=e893]: TrueMove H
+              - generic [ref=e894]: ฿18.5M
+              - generic [ref=e897]: 14 campaigns
+            - generic [ref=e898]:
+              - generic [ref=e899]:
+                - generic [ref=e900]: TM
+                - generic [ref=e902]: Toyota Motor
+              - generic [ref=e903]: ฿15.2M
+              - generic [ref=e906]: 9 campaigns
+            - generic [ref=e907]:
+              - generic [ref=e908]:
+                - generic [ref=e909]: CR
+                - generic [ref=e911]: Central Retail
+              - generic [ref=e912]: ฿12.5M
+              - generic [ref=e915]: 22 campaigns
+            - generic [ref=e916]:
+              - generic [ref=e917]:
+                - generic [ref=e918]: SC
+                - generic [ref=e920]: SCB
+              - generic [ref=e921]: ฿9.8M
+              - generic [ref=e924]: 7 campaigns
+            - generic [ref=e925]:
+              - generic [ref=e926]:
+                - generic [ref=e927]: CC
+                - generic [ref=e929]: Coca-Cola
+              - generic [ref=e930]: ฿8.3M
+              - generic [ref=e933]: 11 campaigns
+            - generic [ref=e934]:
+              - generic [ref=e935]:
+                - generic [ref=e936]: UT
+                - generic [ref=e938]: Unilever
+              - generic [ref=e939]: ฿7.1M
+              - generic [ref=e942]: 8 campaigns
+```

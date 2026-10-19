@@ -1,0 +1,4 @@
+quota text: Version 1/3
+confirm button disabled after evidence attach? false
+=== AFTER CONFIRM ADD VERSION (4th version added) ===
+4 versions badge visible: true

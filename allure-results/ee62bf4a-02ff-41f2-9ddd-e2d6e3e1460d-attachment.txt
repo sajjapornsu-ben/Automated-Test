@@ -1,0 +1,27 @@
+date row button count: 6
+start date button text now: 01/09/2026
+end date button text now: 30/09/2026
+Contract Period area: Contract Period (auto-calculated)
+=== media group options (body) ===
+Search by Quotation Number
+
+No Quotation Number
+Manual entry mode — No Quotation Number, fill in details manually
+Sales Person *
+31/100
+Client *
+14/100
+Product *
+15/150
+Contract Start - End *
+01/09/2026
+→
+30/09/2026
+Contract Period (auto-calculated)
+1 เดือน
+Media Category * (multiple selection)
+DIGITAL
+Media Group * (multiple selection - depends on Category)
+Select media group(s)...
+Digital
+Airpor

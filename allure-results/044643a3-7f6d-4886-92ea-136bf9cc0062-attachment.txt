@@ -1,0 +1,4 @@
+=== date inputs: what element type are they really? ===
+[]
+date button count: 2
+calendar element: no calendar-like element found

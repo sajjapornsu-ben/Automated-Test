@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","4801","Navigate to the create-ticket form","chromium","2026-09-21","passed","2026-09-21","Create Ticket","Project\Media Control\MediaTicket\09-01-navigate-to-create-ticket-form.spec.ts","",""
+"","5524","Open Media Ticket from the sidebar","chromium","2026-09-21","passed","2026-09-21","Navigation","Project\Media Control\MediaTicket\01-01-open-media-ticket-from-sidebar.spec.ts","",""
+"","6255","Search by exact ticket number returns that ticket","chromium","2026-09-21","passed","2026-09-21","Search","Project\Media Control\MediaTicket\03-01-search-by-exact-ticket-number.spec.ts","",""
+"","5926","Filter by status via the ""All Status"" dropdown","chromium","2026-09-21","passed","2026-09-21","Dropdown Filters","Project\Media Control\MediaTicket\04-01-filter-by-status-dropdown.spec.ts","",""
+"","5273","Filter by clicking a status card","chromium","2026-09-21","passed","2026-09-21","Status Overview Quick Filters","Project\Media Control\MediaTicket\02-01-filter-by-clicking-a-status-card.spec.ts","",""

@@ -1,0 +1,3 @@
+=== Submit ===
+confirm dialog visible: true
+URL after submit: https://uat-mediacontrol.planbmedia.co.th/mediaApproval/mediaTicket/create

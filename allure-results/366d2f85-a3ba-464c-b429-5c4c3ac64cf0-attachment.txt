@@ -1,0 +1,6 @@
+file input count: 2
+input[0] accept: null
+input[0] multiple: 
+input[1] accept: null
+input[1] multiple: 
+material link count after remove: 0

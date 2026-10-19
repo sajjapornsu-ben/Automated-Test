@@ -1,0 +1,285 @@
+=== MEDIA TICKET LIST (look for Airtime actions) ===
+- alert
+- complementary:
+  - img "Plan-B Media"
+  - text: Media Control System
+  - navigation "Main navigation":
+    - link "HOME":
+      - /url: /home
+    - link "DASHBOARD":
+      - /url: /dashboard
+    - link "INVENTORY":
+      - /url: /inventory
+    - link "SALE":
+      - /url: /sale
+    - link "PRODUCTION":
+      - /url: /production
+    - link "CLAIM":
+      - /url: /claim
+    - button "MEDIA APPROVAL":
+      - text: MEDIA APPROVAL
+      - img
+    - link "Dashboard":
+      - /url: /mediaApproval/dashboard
+    - link "Media Ticket":
+      - /url: /mediaApproval/mediaTicket
+    - link "Assign Ticket":
+      - /url: /mediaApproval/assignTicket
+    - link "Verify & Production":
+      - /url: /mediaApproval/productionReview
+    - link "Media Management":
+      - /url: /mediaApproval/mediaManagement
+    - button "REPORT":
+      - text: REPORT
+      - img
+    - link "KPI Dashboard":
+      - /url: /report/kpiDashboard
+    - link "Export Airtime":
+      - /url: /report/exportAirtime
+    - link "Monthly Report":
+      - /url: /report/monthlyReport
+    - link "Audit Log":
+      - /url: /report/auditLog
+    - button "SETTING":
+      - text: SETTING
+      - img
+    - link "User Management":
+      - /url: /settings/userManagement
+    - link "User Group Management":
+      - /url: /settings/userGroupManagement
+    - link "Email Setup":
+      - /url: /settings/emailSetup
+    - link "Email Template":
+      - /url: /settings/emailTemplate
+    - link "UI Kit":
+      - /url: /ui-kit
+    - link "Master Data":
+      - /url: /settings/masterData
+  - text: S' Sajjaporn 'Ben' Suksumranpaisan sajjaporn.su@planbmedia.co.th
+  - button "Log Out":
+    - img
+- main:
+  - button "Toggle sidebar":
+    - img
+  - list "Breadcrumbs":
+    - listitem:
+      - link "Home":
+        - /url: /home
+    - listitem:
+      - link "Media Approval"
+    - listitem:
+      - link "Media Ticket" [disabled]
+  - img
+  - heading "Media Ticket" [level=1]
+  - paragraph: Manage and track your requests
+  - link "Create Ticket":
+    - /url: /mediaApproval/mediaTicket/create
+    - img
+    - text: Create Ticket
+  - text: Status Overview
+  - img
+  - text: 28 tickets
+  - img
+  - text: 49 jobs Draft 0 Assign 37 HEAD CG Verify 3 CG Revise (SALE) 1 SALE On Process 0 CG Review 1 SALE Revise (CG) 1 CG Final Approve 0 Final Render 0 Done 0 Cancelled 6
+  - group:
+    - img
+    - textbox "Search ticket, job, client, assignee..."
+  - group:
+    - text: All Status
+    - button "All Status Filter by status"
+  - group:
+    - text: All Head CG
+    - button "All Head CG Filter by Head CG"
+  - group:
+    - text: All Team CG
+    - button "All Team CG Filter by Team CG"
+  - group:
+    - text: All Media Groups
+    - button "All Media Groups Filter by media"
+  - group:
+    - text: All Media Types
+    - button "All Media Types Filter by media type"
+  - button "Created Date":
+    - text: Created Date
+    - img
+  - button "Reset"
+  - grid "Media Ticket List Table":
+    - rowgroup:
+      - row "Ticket No Quotation No. Client Media Group Product Start - End Job Created Date":
+        - columnheader
+        - columnheader "Ticket No":
+          - text: Ticket No
+          - img
+        - columnheader "Quotation No."
+        - columnheader "Client"
+        - columnheader "Media Group"
+        - columnheader "Product"
+        - columnheader "Start - End"
+        - columnheader "Job"
+        - columnheader "Created Date":
+          - text: Created Date
+          - img
+    - rowgroup:
+      - row "TK-26090074":
+        - gridcell:
+          - button:
+            - img
+        - rowheader "TK-26090074":
+          - link "TK-26090074":
+            - /url: /mediaApproval/mediaTicket/TK-26090074
+        - gridcell "Manual"
+        - gridcell "QA Test Client 1789979397553"
+        - gridcell "Digital"
+        - gridcell "QA Test Product"
+        - gridcell "01/09/2026 - 28/09/2026"
+        - gridcell "1"
+        - gridcell "21/09/2026 15:30"
+      - row "TK-26090073 Draft":
+        - gridcell
+        - rowheader "TK-26090073 Draft":
+          - link "TK-26090073":
+            - /url: /mediaApproval/mediaTicket/TK-26090073
+          - img
+          - text: Draft
+        - gridcell "Manual"
+        - gridcell "QA Test Client 1789979398114"
+        - gridcell "Digital"
+        - gridcell "QA Draft Product"
+        - gridcell "01/09/2026 - 28/09/2026"
+        - gridcell "0"
+        - gridcell "21/09/2026 15:30"
+      - row "TK-26090072":
+        - gridcell:
+          - button:
+            - img
+        - rowheader "TK-26090072":
+          - link "TK-26090072":
+            - /url: /mediaApproval/mediaTicket/TK-26090072
+        - gridcell "Manual"
+        - gridcell "QA Test Client 1789979337291"
+        - gridcell "Digital"
+        - gridcell "QA Test Product"
+        - gridcell "01/09/2026 - 28/09/2026"
+        - gridcell "1"
+        - gridcell "21/09/2026 15:29"
+      - row "TK-26090071 Draft":
+        - gridcell
+        - rowheader "TK-26090071 Draft":
+          - link "TK-26090071":
+            - /url: /mediaApproval/mediaTicket/TK-26090071
+          - img
+          - text: Draft
+        - gridcell "Manual"
+        - gridcell "QA Test Client 1789979338272"
+        - gridcell "Digital"
+        - gridcell "QA Draft Product"
+        - gridcell "01/09/2026 - 28/09/2026"
+        - gridcell "0"
+        - gridcell "21/09/2026 15:29"
+      - row "TK-26090070":
+        - gridcell:
+          - button:
+            - img
+        - rowheader "TK-26090070":
+          - link "TK-26090070":
+            - /url: /mediaApproval/mediaTicket/TK-26090070
+        - gridcell "Manual"
+        - gridcell "QA Test Client 1789979289339"
+        - gridcell "Digital"
+        - gridcell "QA Test Product"
+        - gridcell "01/09/2026 - 28/09/2026"
+        - gridcell "1"
+        - gridcell "21/09/2026 15:28"
+      - row "TK-26090069 Draft":
+        - gridcell
+        - rowheader "TK-26090069 Draft":
+          - link "TK-26090069":
+            - /url: /mediaApproval/mediaTicket/TK-26090069
+          - img
+          - text: Draft
+        - gridcell "Manual"
+        - gridcell "QA Draft Explore 1789979245894"
+        - gridcell "Digital"
+        - gridcell "QA Draft Explore Product"
+        - gridcell "01/09/2026 - 28/09/2026"
+        - gridcell "0"
+        - gridcell "21/09/2026 15:27"
+      - row "TK-26090068 Draft":
+        - gridcell
+        - rowheader "TK-26090068 Draft":
+          - link "TK-26090068":
+            - /url: /mediaApproval/mediaTicket/TK-26090068
+          - img
+          - text: Draft
+        - gridcell "Manual"
+        - gridcell "QA Draft Explore 1789979217858"
+        - gridcell "Digital"
+        - gridcell "QA Draft Explore Product"
+        - gridcell "01/09/2026 - 28/09/2026"
+        - gridcell "0"
+        - gridcell "21/09/2026 15:27"
+      - row "TK-26090067":
+        - gridcell:
+          - button:
+            - img
+        - rowheader "TK-26090067":
+          - link "TK-26090067":
+            - /url: /mediaApproval/mediaTicket/TK-26090067
+        - gridcell "Manual"
+        - gridcell "QA Test Client 1789973671235"
+        - gridcell "Digital"
+        - gridcell "QA Test Product"
+        - gridcell "01/09/2026 - 30/09/2026"
+        - gridcell "1"
+        - gridcell "21/09/2026 13:54"
+      - row "TK-26090066":
+        - gridcell:
+          - button:
+            - img
+        - rowheader "TK-26090066":
+          - link "TK-26090066":
+            - /url: /mediaApproval/mediaTicket/TK-26090066
+        - gridcell "Manual"
+        - gridcell "QA Test Client 1789973609403"
+        - gridcell "Digital"
+        - gridcell "QA Test Product"
+        - gridcell "01/09/2026 - 30/09/2026"
+        - gridcell "1"
+        - gridcell "21/09/2026 13:53"
+      - row "TK-26090064":
+        - gridcell:
+          - button:
+            - img
+        - rowheader "TK-26090064":
+          - link "TK-26090064":
+            - /url: /mediaApproval/mediaTicket/TK-26090064
+        - gridcell "Manual"
+        - gridcell "Cat's Taste"
+        - gridcell "Classic Retail"
+        - gridcell "Cat's Taste"
+        - gridcell "01/10/2026 - 31/10/2026"
+        - gridcell "1"
+        - gridcell "16/09/2026 11:04"
+  - text: per page
+  - combobox "Rows per page":
+    - option "10" [selected]
+    - option "25"
+    - option "50"
+    - option "100"
+  - navigation "Pagination":
+    - text: Showing 1 to 10 of 28 items
+    - list:
+      - listitem:
+        - button "Prev" [disabled]:
+          - img
+          - text: Prev
+      - listitem:
+        - button "1"
+      - listitem:
+        - button "2"
+      - listitem:
+        - button "3"
+      - listitem:
+        - button "Next":
+          - text: Next
+          - img

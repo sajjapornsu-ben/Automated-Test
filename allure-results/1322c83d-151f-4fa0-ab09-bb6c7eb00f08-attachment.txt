@@ -1,0 +1,83 @@
+=== Media Category click -> body snapshot ===
+- alert
+- complementary:
+  - img "Plan-B Media"
+  - navigation "Compact navigation":
+    - button "HOME"
+    - button "DASHBOARD"
+    - button "INVENTORY"
+    - button "SALE"
+    - button "PRODUCTION"
+    - button "CLAIM"
+    - button "MEDIA APPROVAL"
+    - button "REPORT"
+    - button "SETTING"
+  - text: S'
+  - button "Log Out":
+    - img
+- main:
+  - button "Toggle sidebar":
+    - img
+  - list "Breadcrumbs":
+    - listitem:
+      - link "Home":
+        - /url: /home
+    - listitem:
+      - link "Media Approval"
+    - listitem:
+      - link "Media Ticket":
+        - /url: /mediaApproval/mediaTicket
+    - listitem:
+      - link "Create Ticket" [disabled]
+  - heading "Create Ticket" [level=1]
+  - button "Back to tickets":
+    - img
+    - text: Back to tickets
+  - paragraph: Search by Quotation Number
+  - button "No Quotation Number"
+  - img
+  - text: Manual entry mode — No Quotation Number, fill in details manually Sales Person * 31/100
+  - textbox "Enter name...": Sajjaporn 'Ben' Suksumranpaisan
+  - text: Client * 0/100
+  - textbox "Enter client name..."
+  - text: Product * 0/150
+  - textbox "Enter product name..."
+  - text: Contract Start - End *
+  - button "DD/MM/YYYY":
+    - text: DD/MM/YYYY
+    - img
+  - text: →
+  - button "DD/MM/YYYY":
+    - text: DD/MM/YYYY
+    - img
+  - text: Contract Period (auto-calculated) — Media Category * (multiple selection)
+  - button "Select media category":
+    - text: Select media category(s)...
+    - img
+  - textbox "Search Select media category":
+    - /placeholder: Search...
+  - button "DIGITAL"
+  - button "BOREANOR01"
+  - text: Media Group * (multiple selection - depends on Category)
+  - button "Select media group":
+    - text: Select Media Category first...
+    - img
+  - text: Media Type * (multiple selection)
+  - button "Select media type":
+    - text: Select Media Group first...
+    - img
+  - text: CS Support (multiple selection)
+  - button "Select CS Support":
+    - text: Select CS Support...
+    - img
+  - heading "Ticket details" [level=3]
+  - paragraph: Click "Add Job" to add a Job
+  - button "Add Job":
+    - img
+    - text: Add Job
+  - img
+  - text: No Jobs yet Click the Add Job button in the top-right corner to get started
+  - heading "Ticket summary" [level=3]
+  - text: Client — Product — Media — PB Number Manual Versions No versions added yet
+  - button "Submit ticket"
+  - button "Save as draft"

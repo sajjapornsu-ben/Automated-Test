@@ -1,0 +1,20 @@
+=== Bar chart search: look for a wide colored segmented bar ===
+DIV.w-12 h-12 rounded-xl flex items-center justify-center shadow-lg style="background: linear-gradient(135deg, rgb(45, 86, 210), rgb(95, 203, 249));"
+DIV. style="width: 72.7%; background: rgb(245, 158, 11); transition: width 0.4s;"
+DIV. style="width: 6.8%; background: rgb(139, 92, 246); transition: width 0.4s;"
+DIV. style="width: 2.3%; background: rgb(244, 63, 94); transition: width 0.4s;"
+DIV. style="width: 2.3%; background: rgb(6, 182, 212); transition: width 0.4s;"
+DIV. style="width: 2.3%; background: rgb(249, 115, 22); transition: width 0.4s;"
+DIV. style="width: 13.6%; background: rgb(239, 68, 68); transition: width 0.4s;"
+DIV.absolute left-0 top-0 bottom-0 w-1 style="background: rgb(148, 163, 184);"
+DIV.absolute left-0 top-0 bottom-0 w-1 style="background: rgb(245, 158, 11);"
+DIV.absolute left-0 top-0 bottom-0 w-1 style="background: rgb(139, 92, 246);"
+DIV.absolute left-0 top-0 bottom-0 w-1 style="background: rgb(244, 63, 94);"
+DIV.absolute left-0 top-0 bottom-0 w-1 style="background: rgb(59, 130, 246);"
+DIV.absolute left-0 top-0 bottom-0 w-1 style="background: rgb(6, 182, 212);"
+DIV.absolute left-0 top-0 bottom-0 w-1 style="background: rgb(249, 115, 22);"
+DIV.absolute left-0 top-0 bottom-0 w-1 style="background: rgb(16, 185, 129);"
+=== check for any ticket with a REAL quotation number (not Manual) ===
+quotation no. values seen: ["Manual"]
+=== search box placeholder + assignee search test ===
+Search ticket, job, client, assignee...

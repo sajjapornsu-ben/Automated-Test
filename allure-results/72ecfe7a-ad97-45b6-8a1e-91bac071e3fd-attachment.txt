@@ -1,0 +1,10 @@
+BEFORE dates: <label class="block text-[11px] font-medium text-[#0B1430] mb-1">Contract Period <span class="text-[10px] font-normal" style="color: rgba(30, 41, 59, 0.5);">(auto-calculated)</span></label>
+---
+<div><label class="block text-[11px] font-medium text-[#0B1430] mb-1">Contract Period <span class="text-[10px] font-normal" style="color: rgba(30, 41, 59, 0.5);">(auto-calculated)</span></label><div class="w-full h-9 px-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg text-[13px] flex items-center" style="color: rgba(30, 41, 59, 0.5);">—</div></div>
+---
+<div><div class="bg-amber-50 border border-amber-200 rounded-lg p-3 mb-4 flex items-center gap-2"><svg class="w-4 h-4 text-amber-600 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008
+AFTER dates: <label class="block text-[11px] font-medium text-[#0B1430] mb-1">Contract Period <span class="text-[10px] font-normal" style="color: rgba(30, 41, 59, 0.5);">(auto-calculated)</span></label>
+---
+<div><label class="block text-[11px] font-medium text-[#0B1430] mb-1">Contract Period <span class="text-[10px] font-normal" style="color: rgba(30, 41, 59, 0.5);">(auto-calculated)</span></label><div class="w-full h-9 px-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg text-[13px] flex items-center" style="color: rgb(11, 20, 48);">28 วัน</div></div>
+---
+<div><div class="bg-amber-50 border border-amber-200 rounded-lg p-3 mb-4 flex items-center gap-2"><svg class="w-4 h-4 text-amber-600 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008

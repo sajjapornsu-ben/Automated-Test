@@ -1,0 +1,7 @@
+ticket url: https://uat-mediacontrol.planbmedia.co.th/mediaApproval/mediaTicket/TK-26090095
+package option count: 0
+package click error: locator.click: Timeout 8000ms exceeded.
+Call log:
+  - waiting for getByRole('button', { name: 'PlanBTV_80Red (Plan B TV)', exact: true })
+
+after package click, popover still has options: false

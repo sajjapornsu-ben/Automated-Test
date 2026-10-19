@@ -1,0 +1,16 @@
+=== search by "Head CG - QA" (assignee-ish value seen in job details) ===
+rows after searching Head CG - QA: 2
+	Ticket No
+	Quotation No.	Client	Media Group	Product	Start - End	Job	Created Date
+
+
+	
+TK-26090043
+	Manual	boreanor 1002	
+Transit
+Transit VGI
+	SATIN	01/10/2026 - 31/10/2026	1	14/09/2026 15:01
+=== search by "CG - QA" (graphic assignee-ish value) ===
+rows after searching CG - QA: 8
+=== bar chart container full outerHTML for locator design ===
+parent class="h-3 rounded-full bg-[#F1F5F9] overflow-hidden flex mb-3" children=6
