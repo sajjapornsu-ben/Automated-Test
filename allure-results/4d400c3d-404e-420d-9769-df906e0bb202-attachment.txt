@@ -1,2 +1,0 @@
-URL after Save as draft: https://uat-mediacontrol.planbmedia.co.th/mediaApproval/mediaTicket/create
-URL after OK: https://uat-mediacontrol.planbmedia.co.th/mediaApproval/mediaTicket

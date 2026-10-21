@@ -1,2 +1,0 @@
-ticket url: https://uat-mediacontrol.planbmedia.co.th/mediaApproval/mediaTicket/TK-26090098
-package button text after select: PlanBTV_80Red (Plan B TV)

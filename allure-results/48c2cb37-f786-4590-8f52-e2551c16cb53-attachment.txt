@@ -1,4 +1,0 @@
-=== Submit ===
-confirm dialog visible: true
-success dialog visible: true
-URL after OK: https://uat-mediacontrol.planbmedia.co.th/mediaApproval/mediaTicket

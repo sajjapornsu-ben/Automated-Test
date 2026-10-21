@@ -1,6 +1,0 @@
-ticket url: https://uat-mediacontrol.planbmedia.co.th/mediaApproval/mediaTicket/TK-26090100
-minutes value: 0
-seconds value: 15
-period buttons text: [ '01/09/2026', '21/09/2026' ]
-new job link boxes count: 2
-jobs count text: 2 jobs

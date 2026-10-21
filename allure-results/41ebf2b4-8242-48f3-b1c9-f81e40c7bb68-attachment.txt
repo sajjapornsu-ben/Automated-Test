@@ -1,5 +1,0 @@
-history dialog still visible after close click: false
-step A: about to click Add Job
-step B: clicked Add Job
-step C: Remove Job count = 1
-step D: after Remove Job click attempt

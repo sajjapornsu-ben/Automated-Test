@@ -1,1 +1,0 @@
-after picking start date, date button texts: [ 'DD/MM/YYYY' ]

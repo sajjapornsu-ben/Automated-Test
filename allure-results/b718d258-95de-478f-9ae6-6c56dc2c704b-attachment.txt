@@ -1,2 +1,0 @@
-toggle attrs OFF: {"type":"button","class":"appearance-none text-left flex items-center gap-2 cursor-pointer"}
-toggle attrs ON: {"type":"button","class":"appearance-none text-left flex items-center gap-2 cursor-pointer"}

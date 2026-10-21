@@ -1,2 +1,0 @@
-Digital exact button count: 1
-all button texts near dropdown: ["MEDIA APPROVAL","REPORT","SETTING","","","Back to tickets","No Quotation Number","DD/MM/YYYY","DD/MM/YYYY","DIGITAL","Digital","Airport","Classic","Digital VGI","Retail","Transit","Transit VGI","Add Job","Submit ticket","Save as draft"]

@@ -9,3 +9,12 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# Cached login sessions (cookies) used by Project/Media Control/auth-cache.ts
+/.auth/
+"allure-results/" 
+"allure-report/" 
+
+# Allure reporter output (regenerated on every run)
+/allure-results/
+/allure-report/

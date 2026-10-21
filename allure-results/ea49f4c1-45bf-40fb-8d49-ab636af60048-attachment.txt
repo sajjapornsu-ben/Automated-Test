@@ -1,2 +1,0 @@
-package listbox/options count: 0
-package options text: []

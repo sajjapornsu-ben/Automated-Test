@@ -1,3 +1,0 @@
-status chevron button bounding box: {"x":285,"y":488.5,"width":0,"height":0}
-search debounce/filter latency ms: 113
-Manual cell title attr: null
