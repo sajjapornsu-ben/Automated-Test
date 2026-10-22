@@ -403,7 +403,7 @@ export const reportFilter = (page: Page, tab: ReportTab, label: RegExp) =>
 
 export async function pickReportFilter(page: Page, tab: ReportTab, label: RegExp, option: string) {
   await reportFilter(page, tab, label).click();
-  await page.getByRole('listbox').first().getByRole('option', { name: option, exact: true }).click();
+  await page.getByRole('listbox').first().getByRole('option', { name: option, exact: true }).first().click();
   await settle(page);
 }
 
@@ -426,6 +426,8 @@ export async function pickFirstFilterOptionWithResults(page: Page, tab: ReportTa
 }
 
 export async function setReportPerPage(page: Page, value: 'Auto' | '10' | '25' | '50' | '100') {
+  // Without a pager ("Showing 1 to X of T") there is no page-size control to change.
+  if ((await page.getByText(/Showing [0-9]+ to [0-9]+ of [0-9]+/).count()) === 0) return;
   await page.getByRole('combobox').last().selectOption(value);
   await settle(page);
   if (value === 'Auto') return;
@@ -443,7 +445,8 @@ export async function setReportPerPage(page: Page, value: 'Auto' | '10' | '25' |
 }
 
 export async function pickReportDate(page: Page, tab: ReportTab, which: 'From' | 'To', year: number, monthIndex: number, day: number) {
-  await reportPanel(page, tab).getByRole('button', { name: `${which} DD/MM/YYYY` }).click();
+  // An unset picker is named "From DD/MM/YYYY"; once a date is set it becomes "19/10/2026 Clear date" - so go by position (From first, To second).
+  await reportPanel(page, tab).getByRole('button', { name: /DD.MM.YYYY|[0-9]{2}.[0-9]{2}.[0-9]{4}/ }).nth(which === 'From' ? 0 : 1).click();
   await page.locator('select').filter({ has: page.locator('option', { hasText: '2018' }) }).last().selectOption(String(year));
   await page.locator('select').filter({ has: page.locator('option', { hasText: 'January' }) }).last().selectOption(String(monthIndex));
   await calendarDay(page, day).click();

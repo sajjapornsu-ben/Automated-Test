@@ -563,3 +563,22 @@ point remove the `test.fail` line. Each gap test was confirmed to fail for the i
 3. Should a CG see other graphics in Graphic Workload (page shows 3 for CG 1) or only themselves (BR35)?
 4. Is CSV export still wanted (spec), and is "Jobs by Period" still in scope?
 5. Does the high-version alert count Versions (BR2) or prove rounds (card text)?
+
+---
+
+## Sections 19–24 — Export Report test-case document (PB-2114/2115/2116/2117)
+
+Full ID → file mapping, non-automatable list, doc-vs-app discrepancies and the `data-testid` wishlist are in
+`specs/export-report-testcase-mapping.md`.
+
+| Section | Files | Scope |
+|---|---|---|
+| 19 | 19-01..19-04 | filters persist across tabs, double-click export, Sale 403, anonymous 401 |
+| 20 | 20-01..20-12 | SLA: 24h feedback rule, "-" cells, order, counts, filters AND, inclusive dates, open-ended dates, export = table row-by-row, DD/MM/YYYY, From > To, reset, export 500/abort |
+| 21 | 21-01..21-05 | Transaction/Airtime: split vs joined formats, search (API parity, case, spaces), `%` wildcard (expected-fail), export = table (26 cols), From > To + export 500 |
+| 22 | 22-01 | Sales parity and Total (Sec) = Durations × spots |
+| 23 | 23-01..23-04 | Billing: arithmetic invariants, workbook structure + reconcile, filters on both sheets, From > To + export 500 |
+| 24 | 24-01 | role report scope ⊆ Super Admin; CG cannot widen via `graphicUserId` |
+
+Verified facts added: report API `export=1` returns every row (billing returns `summary / details / rate / grandTotal`, quota 3, rate 7000);
+`maxExportRows` 50000; picker buttons change name after a date is chosen; Job Type label differs between table and file; file cells may carry trailing spaces.
