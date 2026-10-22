@@ -582,3 +582,86 @@ Full ID → file mapping, non-automatable list, doc-vs-app discrepancies and the
 
 Verified facts added: report API `export=1` returns every row (billing returns `summary / details / rate / grandTotal`, quota 3, rate 7000);
 `maxExportRows` 50000; picker buttons change name after a date is chosen; Job Type label differs between table and file; file cells may carry trailing spaces.
+
+---
+
+## Section 30 — Cross-check Dashboard ↔ list pages (Super Admin)
+
+Basis agreed with the user: Created Date (Dashboard preset **Year**, lists unfiltered), statuses compared one by one, a mismatch fails the test.
+Account: Super Admin (`SUPER_ADMIN_*` in `.env`). Helpers: `Dashboard/_cross-helpers.ts`.
+
+| ID | File | What is compared |
+|---|---|---|
+| XC-ADM-01 | 30-01 | Jobs by Status cards = Status Overview of Media Ticket, Assign Ticket, Media Management (9 statuses + Cancelled) |
+| XC-ADM-02 | 30-02 | Verify & Production: Verify card = Dashboard Assign + Verify; other statuses and Cancelled equal |
+| XC-ADM-03 | 30-03 | Dashboard Total Jobs = list jobs + Draft jobs; Total Tickets = list tickets + Draft-only tickets (Draft comes from Export SLA) |
+| XC-ADM-04 | 30-04 | table footer = sum of overview cards; same total on all three job lists; Media Ticket header jobs/tickets |
+| XC-ADM-05 | 30-05 | clicking each status card gives that many rows (Media Ticket: ≤ card, tickets not jobs) and clears again |
+| XC-ADM-06 | 30-06 | Σ rows per Media Group = all rows (job lists); Media Ticket groups cover every ticket (158 tickets → 188 group rows) |
+| XC-ADM-07 | 30-07 | Graphic Workload column sums = jobs per status counted once per assigned graphic (Σ max(1, #CG)) |
+
+Verified numbers (Year 2026, 22 Oct 2026): 158 tickets / 311 jobs on lists; Dashboard 165 tickets / 330 jobs → 7 Draft-only tickets, 19 Draft jobs.
+Not a bug: workload totals exceed the status cards because a job with two CGs appears under both.
+Verify & Production shows "311 tickets" in its header but the rows are jobs.
+
+## Section 31 — Cross-check Dashboard ↔ list pages (Head CG: Head CG - QA)
+
+Head CG's sidebar has Dashboard, Assign Ticket, Verify & Production only (no Media Ticket / Media Management).
+
+**Media access rule (verified on UAT):** access is defined by the tree in User Management > Edit User (Media Group > Category > Media Type > **Panel Package**).
+A Head CG sees a job exactly when the job's **Sale Package is ticked** in that tree. The "11 Media Groups" chips in the user list are not what decides visibility
+(Head CG - QA has 36 of 52 packages ticked; unticked ones include Digital MRT, Signaturemax 3.0, Pid@MRT, BTS Ciltyline, …).
+Jobs on those packages (e.g. JOB-0038-09 / JOB-26090021-01 "Digital MRT", JOB-0038-08 "Signaturemax 3.0") are correctly hidden. An earlier version of XC-HCG-01 compared by Media Group and was wrong; it was replaced.
+
+| ID | File | Result |
+|---|---|---|
+| XC-HCG-01 | 31-01 | Export SLA of Head CG = Super Admin jobs whose Sale Package is granted (325 = 325, 0 missing, 0 extra); Assign Ticket rows = granted live jobs; Dashboard Total Jobs = granted live + Draft |
+| XC-HCG-02 | 31-02 | Dashboard statuses = Assign Ticket overview, footer, header (Assign 170 / Verify 33 / … / Cancelled 29; 307 jobs) |
+| XC-HCG-03 | 31-02 | Dashboard 325 jobs = 307 + 18 Draft; tickets = listed + Draft-only |
+| XC-HCG-04 | 31-03 | Verify & Production = jobs where Graphic = Head CG - QA (24) |
+| XC-HCG-05 | 31-04 | Graphic Workload sums = jobs counted once per assigned graphic |
+
+All five pass. Helper: `userGrantedPackages()` in `Dashboard/_cross-helpers.ts` reads the ticked packages from the Edit User drawer.
+
+## Section 32 — Cross-check Dashboard ↔ list pages (Media Management account)
+
+Sidebar: Dashboard, Media Ticket, Media Management. Visibility rule is the same as Head CG: a job is visible when its Sale Package is ticked in the user's Media access (read from User Management by e-mail).
+Numbers (Year 2026): Media Management list 296 jobs / 150 tickets; Dashboard 315 jobs / 157 tickets = 296 + 19 Draft jobs, 150 + 7 Draft-only tickets.
+
+| ID | File | Result |
+|---|---|---|
+| XC-MM-01 | 32-01 | Export SLA = Super Admin jobs of granted packages; Media Management rows and Dashboard Total Jobs agree |
+| XC-MM-02 | 32-02 | Dashboard statuses = Media Management overview, footer, header |
+| XC-MM-03 | 32-02 | Dashboard totals = list + Draft (jobs and tickets) |
+| XC-MM-04 | 32-02 | Media Ticket (this user's own requests: 8 tickets / 20 jobs) ≤ Media Management per status; header = sum of cards |
+| XC-MM-05 | 32-03 | Graphic Workload sums = jobs counted once per assigned graphic |
+
+All pass. Not verified: what exactly defines "own requests" on Media Ticket for this role (only the subset relation is checked).
+
+## Section 33 — Cross-check Dashboard ↔ list pages (CG2: CG - QA 2)
+
+CG2 has role **Team CG** but User Group **Super Admin** (full menu). Two different scopes apply:
+- **Dashboard and Verify & Production = own jobs only** (Graphic = CG - QA 2): Dashboard 26 jobs / 19 tickets, Verify & Production 26 rows, no Draft.
+- **Assign Ticket and Media Management = by Media access** (ticked Sale Packages): 304 jobs on both pages (Media Ticket shows 0 — no requests of its own).
+So Dashboard (26) ≠ Assign Ticket / Media Management (304) by design for this account.
+
+| ID | File | Result |
+|---|---|---|
+| XC-CG2-01 | 33-01 | Dashboard statuses = Verify & Production overview (Verify = Assign + Verify), Cancelled, footer |
+| XC-CG2-02 | 33-01 | Export SLA has only own jobs; Verify & Production rows = own live jobs; Dashboard Total Jobs/Tickets = own jobs (+ Draft) / distinct tickets |
+| XC-CG2-03 | 33-02 | Assign Ticket and Media Management rows = Super Admin jobs of granted packages; cards add up to rows |
+
+All pass. Not covered: Graphic Workload (a CG sees other rows — see expected-fail 18-05).
+
+## Section 34 — Cross-check Dashboard ↔ list pages (CG1: CG - QA)
+
+Sidebar: Dashboard, Verify & Production. Dashboard and Verify & Production show **own jobs only** (Graphic = CG - QA), and only jobs whose Sale Package is ticked in the user's Media access (25 of 52 ticked).
+Numbers (Year 2026): 37 jobs / 32 tickets, no Draft; Verify & Production 37 rows.
+
+| ID | File | Result |
+|---|---|---|
+| XC-CG1-01 | 34-01 | Dashboard statuses = Verify & Production overview (Verify = Assign + Verify), Cancelled, footer |
+| XC-CG1-02 | 34-01 | Export SLA has only own jobs; rows = own live jobs; Dashboard Total Jobs/Tickets = own jobs (+ Draft) / distinct tickets |
+| XC-CG1-03 | 34-02 | visible jobs = Super Admin jobs where Graphic includes CG - QA and the package is granted; rows and Dashboard agree |
+
+All pass. Sections 30–34 now cover Super Admin, Head CG, Media Management, CG2 and CG1.

@@ -94,7 +94,7 @@ export async function activePreset(page: Page): Promise<Preset | null> {
       (b) =>
         presets.includes((b.textContent || '').trim()) &&
         (b as HTMLElement).className.includes('h-7') &&
-        (b as HTMLElement).style.color === 'rgb(124, 58, 237)'
+        ((b as HTMLElement).style.color === 'rgb(124, 58, 237)' || (b as HTMLElement).className.includes('7C3AED'))
     );
     return btn ? ((btn.textContent || '').trim() as any) : null;
   }, [...PRESETS]);
@@ -114,11 +114,15 @@ export const KPI_LABELS = [
 
 // A KPI card is the label's direct parent: [LABEL, value, caption].
 export async function kpiCard(page: Page, label: string): Promise<{ value: number; caption: string }> {
-  const card = page.getByText(label, { exact: true }).first().locator('xpath=..');
-  const lines = (await card.innerText()).split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
-  const idx = lines.findIndex((l) => /^[\d,]+$/.test(l));
-  if (idx === -1) throw new Error(`No numeric value in KPI card "${label}": ${lines.join(' | ')}`);
-  return { value: Number(lines[idx].replace(/,/g, '')), caption: lines[idx + 1] ?? '' };
+  // The label sits in a header row (label + info icon); value and caption are siblings of that row,
+  // so walk up to the first ancestor that holds a number.
+  const labelEl = page.getByText(label, { exact: true }).first();
+  for (const up of ['xpath=..', 'xpath=../..']) {
+    const lines = (await labelEl.locator(up).innerText()).split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
+    const idx = lines.findIndex((l) => /^[0-9,]+$/.test(l));
+    if (idx !== -1) return { value: Number(lines[idx].replace(/,/g, '')), caption: lines[idx + 1] ?? '' };
+  }
+  throw new Error(`No numeric value in KPI card "${label}"`);
 }
 
 export async function kpiValue(page: Page, label: string): Promise<number> {
@@ -209,7 +213,7 @@ export const SURCHARGE_PER_EXTRA_PROVE_ROUND = 7000;
 export function sectionCard(page: Page, heading: string) {
   return page
     .getByRole('heading', { name: heading, exact: true })
-    .locator('xpath=ancestor::div[contains(@class,"rounded")][1]');
+    .locator('xpath=ancestor::div[(contains(@class,"rounded") or contains(@class,"ma-surface"))][1]');
 }
 
 const lines = async (loc: ReturnType<Page['locator']>) =>
