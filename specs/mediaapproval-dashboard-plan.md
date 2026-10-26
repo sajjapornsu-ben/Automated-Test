@@ -665,3 +665,16 @@ Numbers (Year 2026): 37 jobs / 32 tickets, no Draft; Verify & Production 37 rows
 | XC-CG1-03 | 34-02 | visible jobs = Super Admin jobs where Graphic includes CG - QA and the package is granted; rows and Dashboard agree |
 
 All pass. Sections 30–34 now cover Super Admin, Head CG, Media Management, CG2 and CG1.
+
+## Team feedback on the spec-gap tests (22 Oct 2026)
+
+| Test | Decision | Action |
+|---|---|---|
+| 18-01 Jobs by Period | OK — period tabs exist, heading not required | rewritten to check the Today/Week/Month/Quarter/Year tabs; passes |
+| 18-03 health level | OK — not required | now checks the on-track % and "N overdue of M"; passes |
+| 18-06 CSV | OK — Excel only | now checks that Export SLA downloads .xlsx; passes |
+| 18-07 SLA card click | OK — lines shown by default, click hides own line | rewritten to that behaviour; passes |
+| 18-04 Media Management person selector | **DEFECT** | `test.fail` removed — the test fails until fixed |
+| 18-05 CG workload shows others | **DEFECT** | `test.fail` removed — the test fails until fixed |
+| 18-02 SLA default period | **DEFECT** (confirmed by team, dev to fix; Year chip is active on open) | `test.fail` removed — the test fails until fixed |
+| 21-03 `%` in search | not a real use case (test was self-made from doc case TRX-E03) | test deleted |

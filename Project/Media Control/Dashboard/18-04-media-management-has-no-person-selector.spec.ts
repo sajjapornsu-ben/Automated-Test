@@ -1,4 +1,4 @@
-// [spec PB-2112] Media Management ต้องเห็นแค่ภาพรวมราย Package ไม่มีตัวเลือกรายบุคคลใน SLA per Graphic — หน้าจริงมี dropdown รายบุคคล จึงตั้งเป็น expected fail
+// [DEFECT] [spec PB-2112] Media Management ต้องเห็นแค่ภาพรวมราย Package ไม่มีตัวเลือกรายบุคคลใน SLA per Graphic — หน้าจริงมี dropdown รายบุคคล จึงตั้งเป็น expected fail
 // spec: specs/mediaapproval-dashboard-plan.md (18.4) — PB-2112 BR34, BR37, AC22
 // seed: seed.spec.ts
 
@@ -7,7 +7,6 @@ import { loginAs, openDashboard, settle, slaSection } from './_helpers';
 
 test.describe('Spec conformance (PB-2112 / PB-2113)', () => {
   test('Media Management has no per-person selector in SLA per Graphic', async ({ page }) => {
-    test.fail(true, 'PB-2112 BR34/AC22: Media Management must not see a per-person selector; it shows the same dropdown as Head CG (observed 2026-10-21)');
 
     await loginAs(page, 'mediaManagement');
     await openDashboard(page);

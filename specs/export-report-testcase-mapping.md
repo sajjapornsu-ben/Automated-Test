@@ -31,7 +31,6 @@ Run: `npx playwright test "Dashboard/"`.
 | SLA export with 0 rows | 17-01 | silent no-op (see discrepancies) |
 | TRX-H01 / AIR-H01/H02 split vs join by Format | 21-01 | |
 | TRX-H02/E01/E02, AIR-H03 search, case, spaces | 21-02 | count == API |
-| TRX-E03 `%` literal | 21-03 | `test.fail` — app treats `%` as wildcard |
 | TRX-H04, AIR-H04 Sales / Total (Sec) | 22-01 | rounding tolerance |
 | TRX/AIR-H05/H06 export = table, 26 columns | 21-04, 14-05, 15-03 | Job Type compared as "non-empty" only |
 | TRX/AIR-N01, N03 From > To, export 500 | 21-05 | |
@@ -66,7 +65,7 @@ Run: `npx playwright test "Dashboard/"`.
 2. Empty cells show a hyphen `-`, not an en dash `–`.
 3. Success feedback is a **modal** "Export Successful", not a toast; output is Excel only (no CSV — see 18-06).
 4. Billing dates are `DD/MM/YYYY` (spec: `DD/M/YY`).
-5. `%` / `_` in search act as SQL wildcards (21-03, expected-fail).
+5. `%` / `_` in search act as SQL wildcards (low impact; the test 21-03 was deleted on request).
 6. Export error modal shows the server message ("boom"), not the Thai generic text from the doc.
 7. Exporting a non-Billing report with 0 rows does nothing visible (17-01); the doc expects a message.
 8. CG's Graphic dropdown is not locked to the user (18-05).
