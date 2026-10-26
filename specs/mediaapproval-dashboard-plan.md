@@ -546,7 +546,7 @@ point remove the `test.fail` line. Each gap test was confirmed to fail for the i
 | S15 | Click an SLA card → chart shows **that** metric's line (2.3 #5, AC20) | Cards are visibility toggles: both active at start, clicking Feedback **hides** the Feedback line | 11-04 (actual), 18-07 (gap) |
 | S16 | HCG can pick Everyone or an individual (BR32, BR36, AC20) | OK | 11-05, 11-02 |
 | S17 | CG: own data only, no person selector (BR33, BR35, AC21) | No selector OK. But Graphic Workload shows 3 graphics for CG 1 (itself + 2 others) | 11-06 OK, 18-05 (gap) |
-| S18 | Media Management: overview per package, **no per-person** selector (BR34, BR37, AC22) | Shows the same person dropdown as HCG, and 8 workload rows incl. individuals | 18-04 (gap) |
+| S18 | Media Management: overview per package, per-person selector (BR34, BR37, AC22) | The spec card was wrong — SA confirmed the current page (same Everyone / person dropdown as Head CG) is correct | 18-04 |
 | S19 | Sale/CS Support: no SLA section, no Report tab, no Export (BR40, AC27) | OK for Sale (CS Support has no test account) | 01-02 |
 | S20 | CG/HCG/MM/Super Admin see the Report with 4 tabs (BR39) | OK; tab labels are SLA / Transaction / Airtime / Billing (spec order: SLA, Airtime, Transaction, Billing; names "... Report") | 01-03 |
 | S21 | **Export as Excel and CSV** (Report #1, BR45, AC28) | Only Excel (.xlsx) downloads directly; no CSV and no format choice | 18-06 (gap) |
@@ -674,7 +674,7 @@ All pass. Sections 30–34 now cover Super Admin, Head CG, Media Management, CG2
 | 18-03 health level | OK — not required | now checks the on-track % and "N overdue of M"; passes |
 | 18-06 CSV | OK — Excel only | now checks that Export SLA downloads .xlsx; passes |
 | 18-07 SLA card click | OK — lines shown by default, click hides own line | rewritten to that behaviour; passes |
-| 18-04 Media Management person selector | **DEFECT** | `test.fail` removed — the test fails until fixed |
+| 18-04 Media Management person selector | Spec was wrong (confirmed by SA, 26 Oct) — the page is correct | test rewritten to assert the current behaviour (renamed `18-04-media-management-has-person-selector`); passes |
 | 18-05 CG workload shows others | **DEFECT** | `test.fail` removed — the test fails until fixed |
 | 18-02 SLA default period | **DEFECT** (confirmed by team, dev to fix; Year chip is active on open) | `test.fail` removed — the test fails until fixed |
 | 21-03 `%` in search | not a real use case (test was self-made from doc case TRX-E03) | test deleted |
@@ -690,3 +690,9 @@ Rule: Head CG sees only themselves and the CGs listed under them in User Managem
 | XC-HCG-07 | 35-01 | **DEFECT** — SLA per Graphic scope dropdown offers the same four people outside the team |
 
 Both tests fail until fixed. Not required by the tests: that every team member (e.g. CG - QA 3, no jobs) appears in the lists.
+
+## Update 26 Oct 2026 — new column "Media Type (Epicor/SF)" in the Export Report
+The SLA table/export went from 10 to 11 columns and Transaction / Airtime from 26 to 27 (new column right after Media / Media Type).
+Tests updated (display only; data correctness is to be checked later): `SLA_COLUMNS` and `TRANSACTION_COLUMNS` in `Dashboard/_helpers.ts`, 14-01 (length from the list), and the specs that read a column by position (18-08, 20-01, 20-02, 20-03) now look the column up by name.
+Still failing and deliberately left for the data-correctness round: 31-01/31-02/32-01/32-02 (Head CG / Media Management numbers no longer match the Media access rule or the list pages).
+Observation for that round: the SLA report API returns jobs that are not shown in the table (20-02 records an annotation).

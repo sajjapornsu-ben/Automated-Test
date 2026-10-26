@@ -4,7 +4,7 @@
 // seed: seed.spec.ts
 
 import { test, expect } from '@playwright/test';
-import { loginAs, openDashboard, settle } from './_helpers';
+import { loginAs, openDashboard, settle, SLA_COLUMNS } from './_helpers';
 import { fetchAll, goToReport, readTableAllPages } from './_report-helpers';
 
 const HOURS = 3600 * 1000;
@@ -17,7 +17,7 @@ test.describe('Export Report — SLA tab (PB-2116)', () => {
     await goToReport(page, 'SLA');
 
     const ui = new Map<string, string>(); // Job No -> Feedback SLA badge
-    for (const r of await readTableAllPages(page, 'SLA')) ui.set(r[0], r[7]);
+    for (const r of await readTableAllPages(page, 'SLA')) ui.set(r[0], r[SLA_COLUMNS.indexOf('Feedback SLA')]);
 
     const { rows } = await fetchAll(page, 'sla');
     const holidays: string[] = (await (await page.request.get('https://uat-mediacontrol.planbmedia.co.th/api/holidays')).json()).data.map((h: any) => h.holiday_date);

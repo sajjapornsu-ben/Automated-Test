@@ -477,12 +477,12 @@ export async function exportReport(page: Page, tab: ReportTab) {
 }
 
 export const TRANSACTION_COLUMNS = [
-  'Transaction Date', 'Quote No.', 'PB/MEMO', 'Company Name', 'Sale Package', 'Media Type', 'Client Product',
+  'Transaction Date', 'Quote No.', 'PB/MEMO', 'Company Name', 'Sale Package', 'Media Type', 'Media Type (Epicor/SF)', 'Client Product',
   'File Name', 'Version', 'Version (Nick Name)', 'Durations', 'Number Spot/Loop (Time)', 'Total (Sec)',
   'Start On-Air', 'End On-Air', 'Start Contract Period', 'End Contract Period', 'Sound', 'Sales', 'Job Type',
   'Format, Screens', 'Create App', 'Sale Approve Status', 'Date Sale Approve', 'Landlord Approve Status', 'Date Landlord Approve',
 ];
-export const SLA_COLUMNS = ['Job No', 'Ticket', 'Client', 'Product', 'Media', 'Graphic', 'Status', 'Feedback SLA', 'Progress SLA', 'Created Date'];
+export const SLA_COLUMNS = ['Job No', 'Ticket', 'Client', 'Product', 'Media', 'Media Type (Epicor/SF)', 'Graphic', 'Status', 'Feedback SLA', 'Progress SLA', 'Created Date'];
 export const BILLING_COLUMNS = ['No.', 'สื่อ/Pack', 'สินค้า', 'Version', 'จำนวน Prove จริง', 'จำนวน Prove ที่เกิน', 'Rate / Prove', 'มูลค่า Prove ที่เกิน'];
 
 // SLA per Graphic loads after the rest of the page; wait for its cards and chart lines before interacting.

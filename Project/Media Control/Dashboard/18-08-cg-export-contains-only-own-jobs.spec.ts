@@ -4,9 +4,9 @@
 
 import { test, expect } from '@playwright/test';
 import * as XLSX from 'xlsx';
-import { loginAs, openDashboard, settle, DISPLAY_NAME } from './_helpers';
+import { loginAs, openDashboard, settle, DISPLAY_NAME, SLA_COLUMNS } from './_helpers';
 
-const GRAPHIC_COL = 5; // Job No, Ticket, Client, Product, Media, Graphic, ...
+const GRAPHIC_COL = SLA_COLUMNS.indexOf('Graphic'); // looked up by name so a new column does not shift it
 
 test.describe('Spec conformance (PB-2112 / PB-2113)', () => {
   test('CG export contains only their own jobs', async ({ page }) => {

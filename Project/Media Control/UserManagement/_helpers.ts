@@ -92,14 +92,20 @@ export async function dismissOk(page: Page) {
 }
 
 /** Creates a QA user (user group "QA", Email Notification off) through the Create User drawer. */
-export async function createQaUser(page: Page, u: QaUser, opts: { phone?: string } = {}) {
+export async function createQaUser(page: Page, u: QaUser, opts: { phone?: string; group?: string; role?: string; mediaAccess?: boolean } = {}) {
   await page.getByRole('button', { name: 'Create User', exact: true }).click();
   const d = drawer(page);
   await d.getByPlaceholder('First name').fill(u.first);
   await d.getByPlaceholder('Last name').fill(u.last);
   await d.getByPlaceholder('name@planbmedia.co.th').fill(u.email);
   await d.getByPlaceholder('099-999-9999').fill(opts.phone ?? '0999999999');
-  await d.locator('select').nth(1).selectOption({ label: 'QA' });
+  await d.locator('select').nth(1).selectOption({ label: opts.group ?? 'QA' });
+  if (opts.role) await d.locator('select').nth(2).selectOption({ label: opts.role }); // groups other than QA also require a role
+  if (opts.mediaAccess) {
+    // roles other than QA need at least one Media Group and Media Category in the Media access tree
+    await d.getByRole('checkbox', { name: 'Digital', exact: true }).first().check({ force: true });
+    await d.getByRole('checkbox', { name: 'DIGITAL', exact: true }).first().check({ force: true });
+  }
   await d.getByPlaceholder('••••••••').first().fill(QA_PASSWORD());
   await d.getByPlaceholder('••••••••').nth(1).fill(QA_PASSWORD());
   // Email Notification is on by default; turn it off so the throwaway account never triggers mail

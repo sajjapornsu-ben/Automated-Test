@@ -13,7 +13,7 @@ test.describe('Export Report — Transaction tab', () => {
     await openReportTab(page, 'Transaction');
 
     const headers = await reportHeaders(page, 'Transaction');
-    expect(headers).toHaveLength(26);
+    expect(headers).toHaveLength(TRANSACTION_COLUMNS.length); // 27 since the "Media Type (Epicor/SF)" column was added (was 26)
     expect(headers).toEqual(TRANSACTION_COLUMNS);
   });
 });
