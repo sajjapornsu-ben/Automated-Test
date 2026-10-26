@@ -678,3 +678,15 @@ All pass. Sections 30–34 now cover Super Admin, Head CG, Media Management, CG2
 | 18-05 CG workload shows others | **DEFECT** | `test.fail` removed — the test fails until fixed |
 | 18-02 SLA default period | **DEFECT** (confirmed by team, dev to fix; Year chip is active on open) | `test.fail` removed — the test fails until fixed |
 | 21-03 `%` in search | not a real use case (test was self-made from doc case TRX-E03) | test deleted |
+
+## Section 35 — Head CG sees only self and own team (confirmed with SA, 22 Oct 2026)
+
+Rule: Head CG sees only themselves and the CGs listed under them in User Management > Edit User > "Team CG under this Head" (Head CG - QA: CG - QA, CG - QA 2, CG - QA 3).
+"Unassigned" (workload row) and "Everyone (Average)" (SLA scope) are not people and are allowed (assumption — not yet confirmed).
+
+| ID | File | Result |
+|---|---|---|
+| XC-HCG-06 | 35-01 | **DEFECT** — Graphic Workload also lists Prapat 'Net' Tochang, Sajjaporn 'Ben' Suksumranpaisan, CGDEV 'CGDEV' CGDEV, Head CG & Media Management - QA |
+| XC-HCG-07 | 35-01 | **DEFECT** — SLA per Graphic scope dropdown offers the same four people outside the team |
+
+Both tests fail until fixed. Not required by the tests: that every team member (e.g. CG - QA 3, no jobs) appears in the lists.

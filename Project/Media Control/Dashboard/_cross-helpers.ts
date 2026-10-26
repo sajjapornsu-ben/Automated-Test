@@ -172,3 +172,23 @@ export async function userGrantedPackages(page: Page, displayName: string): Prom
   await page.keyboard.press('Escape');
   return { granted, notGranted: new Set([...all].filter((p) => !granted.has(p))) };
 }
+
+/** Team CG members configured under a Head CG (Edit User > "Team CG under this Head", entries marked "Current team"). */
+export async function userTeamMembers(page: Page, email: string): Promise<string[]> {
+  await page.goto('https://uat-mediacontrol.planbmedia.co.th/settings/userManagement');
+  await page.getByPlaceholder('Search by name, email, phone...').fill(email);
+  await page.locator('tbody tr').filter({ hasText: email }).first().getByRole('button', { name: 'Edit' }).click();
+  const dlg = page.getByRole('dialog').first();
+  await expect(dlg.getByText('Team CG under this Head', { exact: false }).first()).toBeVisible({ timeout: 15000 });
+  const members = await dlg.getByText('Current team', { exact: true }).evaluateAll((els) =>
+    els.map((e) => {
+      // the member card holds: initials, name, e-mail, "Current team"
+      const lines = ((e.parentElement?.parentElement as HTMLElement | null)?.innerText ?? (e.parentElement as HTMLElement).innerText)
+        .split(/\r?\n/).map((s) => s.trim()).filter(Boolean);
+      const at = lines.findIndex((l) => l.includes('@'));
+      return at > 0 ? lines[at - 1] : '';
+    })
+  );
+  await page.keyboard.press('Escape');
+  return members.filter(Boolean);
+}
