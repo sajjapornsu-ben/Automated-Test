@@ -1,0 +1,217 @@
+[
+ {
+  "where": "sale: /mediaApproval/dashboard",
+  "kind": "text",
+  "text": "ไฟล์สำเร็จ (Final File)"
+ },
+ {
+  "where": "sale: /mediaApproval/dashboard",
+  "kind": "text",
+  "text": "มีโปรเจค AE/PR"
+ },
+ {
+  "where": "sale: /mediaApproval/dashboard",
+  "kind": "text",
+  "text": "Mockup (เสนอขาย)"
+ },
+ {
+  "where": "sale: /mediaApproval/dashboard",
+  "kind": "text",
+  "text": "งานอื่นๆ (Other)"
+ },
+ {
+  "where": "sale: /report/kpiDashboard",
+  "kind": "text",
+  "text": "Assignment SLA เฉลี่ย"
+ },
+ {
+  "where": "sale: /report/kpiDashboard",
+  "kind": "text",
+  "text": "42 นาที"
+ },
+ {
+  "where": "sale: /report/kpiDashboard",
+  "kind": "text",
+  "text": "งานที่จ่ายแล้วเดือนนี้"
+ },
+ {
+  "where": "sale: /report/kpiDashboard",
+  "kind": "text",
+  "text": "ภาพรวมงานที่จ่ายให้แต่ละหัวหน้าทีม CG"
+ },
+ {
+  "where": "sale: /report/kpiDashboard",
+  "kind": "text",
+  "text": "หัวหน้าทีม"
+ },
+ {
+  "where": "sale: /report/kpiDashboard",
+  "kind": "text",
+  "text": "ทีม"
+ },
+ {
+  "where": "sale: /report/kpiDashboard",
+  "kind": "text",
+  "text": "งานจ่ายแล้ว"
+ },
+ {
+  "where": "sale: /report/kpiDashboard",
+  "kind": "text",
+  "text": "SLA เฉลี่ย"
+ },
+ {
+  "where": "sale: /report/kpiDashboard",
+  "kind": "text",
+  "text": "ตัวชี้วัดประสิทธิภาพรายบุคคลของดีไซเนอร์"
+ },
+ {
+  "where": "sale: /report/kpiDashboard",
+  "kind": "text",
+  "text": "ดีไซเนอร์"
+ },
+ {
+  "where": "sale: /report/kpiDashboard",
+  "kind": "text",
+  "text": "งานเสร็จ"
+ },
+ {
+  "where": "sale: /report/kpiDashboard",
+  "kind": "text",
+  "text": "MUP 1 (3 วัน)"
+ },
+ {
+  "where": "sale: /report/kpiDashboard",
+  "kind": "text",
+  "text": "Revision (2 วัน)"
+ },
+ {
+  "where": "sale: /report/exportAirtime",
+  "kind": "text",
+  "text": "สรุปข้อมูลชื่อไฟล์ + คำสั่งออกอากาศ เพื่อส่งออกให้ทีมจัดตาราง"
+ },
+ {
+  "where": "sale: /report/exportAirtime",
+  "kind": "text",
+  "text": "ประเภทสื่อ"
+ },
+ {
+  "where": "sale: /report/exportAirtime",
+  "kind": "text",
+  "text": "ทั้งหมด"
+ },
+ {
+  "where": "sale: /report/exportAirtime",
+  "kind": "text",
+  "text": "จากวันที่"
+ },
+ {
+  "where": "sale: /report/exportAirtime",
+  "kind": "text",
+  "text": "ถึงวันที่"
+ },
+ {
+  "where": "sale: /report/exportAirtime",
+  "kind": "text",
+  "text": "ชื่อไฟล์สุดท้าย"
+ },
+ {
+  "where": "sale: /report/exportAirtime",
+  "kind": "text",
+  "text": "ความถี่/ชม."
+ },
+ {
+  "where": "sale: /report/exportAirtime",
+  "kind": "text",
+  "text": "ช่วงออกอากาศ"
+ },
+ {
+  "where": "sale: /report/exportAirtime",
+  "kind": "text",
+  "text": "คำสั่งพิเศษ"
+ },
+ {
+  "where": "sale: /report/exportAirtime",
+  "kind": "text",
+  "text": "ชื่อไฟล์"
+ },
+ {
+  "where": "sale: /report/exportAirtime",
+  "kind": "text",
+  "text": "01-31 พ.ค."
+ },
+ {
+  "where": "sale: /report/exportAirtime",
+  "kind": "text",
+  "text": "Sandwich กับ AIS Fibre"
+ },
+ {
+  "where": "sale: /report/exportAirtime",
+  "kind": "text",
+  "text": "01-15 พ.ค."
+ },
+ {
+  "where": "sale: /report/exportAirtime",
+  "kind": "aria-label",
+  "text": "ประเภทสื่อ"
+ },
+ {
+  "where": "sale: /report/monthlyReport",
+  "kind": "aria-label",
+  "text": "เลือกเดือน"
+ },
+ {
+  "where": "sale: /report/auditLog",
+  "kind": "text",
+  "text": "ตั้งแต่"
+ },
+ {
+  "where": "sale: /report/auditLog",
+  "kind": "text",
+  "text": "ถึง"
+ },
+ {
+  "where": "sale: /report/auditLog",
+  "kind": "text",
+  "text": "เวลา"
+ },
+ {
+  "where": "sale: /report/auditLog",
+  "kind": "text",
+  "text": "ผู้ใช้"
+ },
+ {
+  "where": "sale: /report/auditLog",
+  "kind": "text",
+  "text": "รายการ"
+ },
+ {
+  "where": "sale: /settings/userManagement › \"Create User\" form › empty Save (validation)",
+  "kind": "text",
+  "text": "กรุณากรอก First name"
+ },
+ {
+  "where": "sale: /settings/userManagement › \"Create User\" form › empty Save (validation)",
+  "kind": "text",
+  "text": "กรุณากรอก Last name"
+ },
+ {
+  "where": "sale: /settings/userManagement › \"Create User\" form › empty Save (validation)",
+  "kind": "text",
+  "text": "กรุณากรอก Email"
+ },
+ {
+  "where": "sale: /settings/userManagement › \"Create User\" form › empty Save (validation)",
+  "kind": "text",
+  "text": "กรุณาเลือก User Group"
+ },
+ {
+  "where": "sale: /settings/userManagement › \"Create User\" form › empty Save (validation)",
+  "kind": "text",
+  "text": "กรุณากรอก Password"
+ },
+ {
+  "where": "sale: /settings/userManagement › \"Create User\" form › empty Save (validation)",
+  "kind": "text",
+  "text": "กรุณากรอก Confirm Password"
+ }
+]

@@ -130,7 +130,7 @@ export async function userMediaGroups(page: Page, displayName: string): Promise<
  * Media access really granted to a user in Settings > User Management > Edit (Media Group > Category > Media Type > Panel Package tree).
  * Verified on UAT: a job is visible to the user exactly when its Sale Package is ticked in this tree, so this returns the ticked package names.
  */
-export async function userGrantedPackages(page: Page, displayName: string): Promise<{ granted: Set<string>; notGranted: Set<string> }> {
+async function readGrantedPackagesOnce(page: Page, displayName: string): Promise<{ granted: Set<string>; notGranted: Set<string> }> {
   await page.goto('https://uat-mediacontrol.planbmedia.co.th/settings/userManagement');
   await page.getByPlaceholder('Search by name, email, phone...').fill(displayName);
   await page.locator('tbody tr').filter({ hasText: displayName }).first().getByRole('button', { name: 'Edit' }).click();
@@ -191,4 +191,11 @@ export async function userTeamMembers(page: Page, email: string): Promise<string
   );
   await page.keyboard.press('Escape');
   return members.filter(Boolean);
+}
+
+/** The tree sometimes renders before the packages load (0 ticked); read it again until something is ticked. */
+export async function userGrantedPackages(page: Page, displayName: string): Promise<{ granted: Set<string>; notGranted: Set<string> }> {
+  let last = await readGrantedPackagesOnce(page, displayName);
+  for (let i = 0; i < 2 && last.granted.size === 0; i++) last = await readGrantedPackagesOnce(page, displayName);
+  return last;
 }

@@ -1,0 +1,32 @@
+[
+ {
+  "where": "headCg: /mediaApproval/dashboard",
+  "kind": "text",
+  "text": "ไฟล์สำเร็จ (Final File)"
+ },
+ {
+  "where": "headCg: /mediaApproval/dashboard",
+  "kind": "text",
+  "text": "มีโปรเจค AE/PR"
+ },
+ {
+  "where": "headCg: /mediaApproval/dashboard",
+  "kind": "text",
+  "text": "Mockup (เสนอขาย)"
+ },
+ {
+  "where": "headCg: /mediaApproval/dashboard",
+  "kind": "text",
+  "text": "งานอื่นๆ (Other)"
+ },
+ {
+  "where": "headCg: /mediaApproval/assignTicket",
+  "kind": "title",
+  "text": "Media Type (Epicor/SF): ทดสอบ-"
+ },
+ {
+  "where": "headCg: /mediaApproval/productionReview",
+  "kind": "text",
+  "text": "หนังสือ"
+ }
+]

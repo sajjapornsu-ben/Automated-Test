@@ -9,6 +9,7 @@ import { dashboardYear, openList, overview, footerTotal, headerCounts, STATUS_PA
 
 test.describe('Cross-check Media Management — Dashboard vs lists', () => {
   test('XC-MM-02 status counts equal the Media Management overview, footer and header', { tag: ['@regression'] }, async ({ page }) => {
+    test.fixme(true, 'Media Management rule not confirmed: the jobs missing from Dashboard / Export SLA are mostly old data (Aug-Sep) and a ticket created now shows on the Media Management page (team retest 27 Oct) - re-enable when SA confirms the rule');
     await loginAs(page, 'mediaManagement');
     const dash = await dashboardYear(page);
     await openList(page, 'mediaManagement');
@@ -20,6 +21,7 @@ test.describe('Cross-check Media Management — Dashboard vs lists', () => {
   });
 
   test('XC-MM-03 Dashboard totals = Media Management list + Draft', { tag: ['@regression'] }, async ({ page }) => {
+    test.fixme(true, 'Media Management rule not confirmed: the jobs missing from Dashboard / Export SLA are mostly old data (Aug-Sep) and a ticket created now shows on the Media Management page (team retest 27 Oct) - re-enable when SA confirms the rule');
     await loginAs(page, 'mediaManagement');
     const dash = await dashboardYear(page);
     const sla = (await fetchAll(page, 'sla')).rows;

@@ -696,3 +696,21 @@ The SLA table/export went from 10 to 11 columns and Transaction / Airtime from 2
 Tests updated (display only; data correctness is to be checked later): `SLA_COLUMNS` and `TRANSACTION_COLUMNS` in `Dashboard/_helpers.ts`, 14-01 (length from the list), and the specs that read a column by position (18-08, 20-01, 20-02, 20-03) now look the column up by name.
 Still failing and deliberately left for the data-correctness round: 31-01/31-02/32-01/32-02 (Head CG / Media Management numbers no longer match the Media access rule or the list pages).
 Observation for that round: the SLA report API returns jobs that are not shown in the table (20-02 records an annotation).
+
+## Update 27 Oct 2026 — visibility rules confirmed by SA, tests 31-01 / 32-01 rewritten
+- **Head CG:** sees the jobs of the whole team, split by the Packages they are responsible for → visible = Sale Package ticked in Media access ∧ (no CG assigned yet ∨ assigned to the Head CG or a CG under them).
+- **Media Management:** overview by the Packages they belong to, plus the tickets they created (Create Ticket) → visible = package ticked ∨ job of a ticket created by the user.
+
+Results on 27 Oct:
+| Role | Rule says | Export SLA | Dashboard Total Jobs | List page |
+|---|---|---|---|---|
+| Head CG | 250 live jobs (268 with Draft) | **matches** | **matches** | Assign Ticket 308 — shows other teams' jobs too (defect of the list per this rule) |
+| Media Management | 303 live jobs (322 with Draft) | 268 (54 jobs missing, assigned to Prapat / Nattakan / Sajjaporn …) | 268 | Media Management 297 (6 fewer than the rule) |
+
+31-02 / 32-02 (Dashboard vs list) keep failing for the same reason (the list pages are broader than the Dashboard for Head CG; for Media Management the three sources disagree).
+Open question for SA: Media Management — which jobs assigned to other CGs should be hidden, if any (the rule above does not hide them).
+
+## Update 27 Oct 2026 (later) — Head CG is a defect, Media Management is not confirmed
+- **Head CG: defect confirmed by the team.** Assign Ticket shows 58 jobs the rule excludes (Dashboard and Export SLA are correct). 31-01 and 31-02 stay failing. Evidence list: `reports/visibility-defects.md` (section 1; regenerate with `EVIDENCE=1 npx playwright test "Dashboard/99-"`).
+- Age of the jobs in the evidence: Head CG extra jobs — 14 from Aug, 38 from Sep, 6 from Oct (newest 19 Oct); MM missing jobs — 6 Aug, 44 Sep, 4 Oct (newest 15 Oct); the 6 jobs missing on the Media Management page are all from 9–10 Sep.
+- **Media Management: not treated as a defect.** The team created a new ticket with the Media Management role and it shows on the Media Management page, so the differences are probably old data. 32-01, XC-MM-02 and XC-MM-03 are marked `test.fixme` until SA confirms the rule (XC-MM-04 and XC-MM-05 stay active and pass).

@@ -1,0 +1,232 @@
+[
+ {
+  "where": "cg2: /mediaApproval/dashboard",
+  "kind": "text",
+  "text": "ไฟล์สำเร็จ (Final File)"
+ },
+ {
+  "where": "cg2: /mediaApproval/dashboard",
+  "kind": "text",
+  "text": "มีโปรเจค AE/PR"
+ },
+ {
+  "where": "cg2: /mediaApproval/dashboard",
+  "kind": "text",
+  "text": "Mockup (เสนอขาย)"
+ },
+ {
+  "where": "cg2: /mediaApproval/dashboard",
+  "kind": "text",
+  "text": "งานอื่นๆ (Other)"
+ },
+ {
+  "where": "cg2: /mediaApproval/assignTicket",
+  "kind": "title",
+  "text": "Media Type (Epicor/SF): ทดสอบ-"
+ },
+ {
+  "where": "cg2: /mediaApproval/productionReview",
+  "kind": "text",
+  "text": "คุกกี้"
+ },
+ {
+  "where": "cg2: /mediaApproval/mediaManagement",
+  "kind": "title",
+  "text": "Media Type (Epicor/SF): ทดสอบ-"
+ },
+ {
+  "where": "cg2: /report/kpiDashboard",
+  "kind": "text",
+  "text": "Assignment SLA เฉลี่ย"
+ },
+ {
+  "where": "cg2: /report/kpiDashboard",
+  "kind": "text",
+  "text": "42 นาที"
+ },
+ {
+  "where": "cg2: /report/kpiDashboard",
+  "kind": "text",
+  "text": "งานที่จ่ายแล้วเดือนนี้"
+ },
+ {
+  "where": "cg2: /report/kpiDashboard",
+  "kind": "text",
+  "text": "ภาพรวมงานที่จ่ายให้แต่ละหัวหน้าทีม CG"
+ },
+ {
+  "where": "cg2: /report/kpiDashboard",
+  "kind": "text",
+  "text": "หัวหน้าทีม"
+ },
+ {
+  "where": "cg2: /report/kpiDashboard",
+  "kind": "text",
+  "text": "ทีม"
+ },
+ {
+  "where": "cg2: /report/kpiDashboard",
+  "kind": "text",
+  "text": "งานจ่ายแล้ว"
+ },
+ {
+  "where": "cg2: /report/kpiDashboard",
+  "kind": "text",
+  "text": "SLA เฉลี่ย"
+ },
+ {
+  "where": "cg2: /report/kpiDashboard",
+  "kind": "text",
+  "text": "ตัวชี้วัดประสิทธิภาพรายบุคคลของดีไซเนอร์"
+ },
+ {
+  "where": "cg2: /report/kpiDashboard",
+  "kind": "text",
+  "text": "ดีไซเนอร์"
+ },
+ {
+  "where": "cg2: /report/kpiDashboard",
+  "kind": "text",
+  "text": "งานเสร็จ"
+ },
+ {
+  "where": "cg2: /report/kpiDashboard",
+  "kind": "text",
+  "text": "MUP 1 (3 วัน)"
+ },
+ {
+  "where": "cg2: /report/kpiDashboard",
+  "kind": "text",
+  "text": "Revision (2 วัน)"
+ },
+ {
+  "where": "cg2: /report/exportAirtime",
+  "kind": "text",
+  "text": "สรุปข้อมูลชื่อไฟล์ + คำสั่งออกอากาศ เพื่อส่งออกให้ทีมจัดตาราง"
+ },
+ {
+  "where": "cg2: /report/exportAirtime",
+  "kind": "text",
+  "text": "ประเภทสื่อ"
+ },
+ {
+  "where": "cg2: /report/exportAirtime",
+  "kind": "text",
+  "text": "ทั้งหมด"
+ },
+ {
+  "where": "cg2: /report/exportAirtime",
+  "kind": "text",
+  "text": "จากวันที่"
+ },
+ {
+  "where": "cg2: /report/exportAirtime",
+  "kind": "text",
+  "text": "ถึงวันที่"
+ },
+ {
+  "where": "cg2: /report/exportAirtime",
+  "kind": "text",
+  "text": "ชื่อไฟล์สุดท้าย"
+ },
+ {
+  "where": "cg2: /report/exportAirtime",
+  "kind": "text",
+  "text": "ความถี่/ชม."
+ },
+ {
+  "where": "cg2: /report/exportAirtime",
+  "kind": "text",
+  "text": "ช่วงออกอากาศ"
+ },
+ {
+  "where": "cg2: /report/exportAirtime",
+  "kind": "text",
+  "text": "คำสั่งพิเศษ"
+ },
+ {
+  "where": "cg2: /report/exportAirtime",
+  "kind": "text",
+  "text": "ชื่อไฟล์"
+ },
+ {
+  "where": "cg2: /report/exportAirtime",
+  "kind": "text",
+  "text": "01-31 พ.ค."
+ },
+ {
+  "where": "cg2: /report/exportAirtime",
+  "kind": "text",
+  "text": "Sandwich กับ AIS Fibre"
+ },
+ {
+  "where": "cg2: /report/exportAirtime",
+  "kind": "text",
+  "text": "01-15 พ.ค."
+ },
+ {
+  "where": "cg2: /report/exportAirtime",
+  "kind": "aria-label",
+  "text": "ประเภทสื่อ"
+ },
+ {
+  "where": "cg2: /report/monthlyReport",
+  "kind": "aria-label",
+  "text": "เลือกเดือน"
+ },
+ {
+  "where": "cg2: /report/auditLog",
+  "kind": "text",
+  "text": "ตั้งแต่"
+ },
+ {
+  "where": "cg2: /report/auditLog",
+  "kind": "text",
+  "text": "ถึง"
+ },
+ {
+  "where": "cg2: /report/auditLog",
+  "kind": "text",
+  "text": "เวลา"
+ },
+ {
+  "where": "cg2: /report/auditLog",
+  "kind": "text",
+  "text": "ผู้ใช้"
+ },
+ {
+  "where": "cg2: /report/auditLog",
+  "kind": "text",
+  "text": "รายการ"
+ },
+ {
+  "where": "cg2: /settings/userManagement › \"Create User\" form › empty Save (validation)",
+  "kind": "text",
+  "text": "กรุณากรอก First name"
+ },
+ {
+  "where": "cg2: /settings/userManagement › \"Create User\" form › empty Save (validation)",
+  "kind": "text",
+  "text": "กรุณากรอก Last name"
+ },
+ {
+  "where": "cg2: /settings/userManagement › \"Create User\" form › empty Save (validation)",
+  "kind": "text",
+  "text": "กรุณากรอก Email"
+ },
+ {
+  "where": "cg2: /settings/userManagement › \"Create User\" form › empty Save (validation)",
+  "kind": "text",
+  "text": "กรุณาเลือก User Group"
+ },
+ {
+  "where": "cg2: /settings/userManagement › \"Create User\" form › empty Save (validation)",
+  "kind": "text",
+  "text": "กรุณากรอก Password"
+ },
+ {
+  "where": "cg2: /settings/userManagement › \"Create User\" form › empty Save (validation)",
+  "kind": "text",
+  "text": "กรุณากรอก Confirm Password"
+ }
+]
