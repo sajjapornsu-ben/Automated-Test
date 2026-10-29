@@ -50,8 +50,8 @@ export type Access = Record<string, string[]>; // system → menus to tick (empt
 /** Fills the name / description / status / access of the open Add or Edit drawer. `access` replaces the current access. */
 export async function fillGroup(page: Page, g: { name?: string; description?: string; active?: boolean; access?: Access }) {
   const d = drawer(page);
-  if (g.name !== undefined) await d.getByPlaceholder('เช่น Sales — Lead').fill(g.name);
-  if (g.description !== undefined) await d.getByPlaceholder(/เช่น หัวหน้าทีมขาย/).fill(g.description);
+  if (g.name !== undefined) await d.getByPlaceholder('e.g. Sales — Lead').fill(g.name);
+  if (g.description !== undefined) await d.getByPlaceholder(/e\.g\. Sales team leads/).fill(g.description);
   if (g.active !== undefined) await d.getByText(g.active ? 'Active' : 'Inactive', { exact: true }).first().click();
   if (g.access) {
     for (const [system, menus] of Object.entries(g.access)) {
@@ -110,8 +110,8 @@ export async function signInAs(browser: Browser, email: string, password: string
   const ctx = await browser.newContext();
   const p = await ctx.newPage();
   await p.goto('https://uat-mediacontrol.planbmedia.co.th/login');
-  await p.getByRole('textbox', { name: 'อีเมล' }).fill(email);
-  await p.getByRole('textbox', { name: 'รหัสผ่าน' }).fill(password);
+  await p.getByRole('textbox', { name: /^(อีเมล|Email)/ }).fill(email);
+  await p.getByRole('textbox', { name: /^(รหัสผ่าน|Password)/ }).fill(password);
   await p.getByRole('button', { name: 'Sign In', exact: true }).click();
   await Promise.race([p.waitForURL((u) => !u.pathname.startsWith('/login'), { timeout: 15000 }), p.getByRole('button', { name: 'OK', exact: true }).waitFor({ timeout: 15000 })]).catch(() => undefined);
   const ok = !new URL(p.url()).pathname.startsWith('/login');
@@ -119,7 +119,7 @@ export async function signInAs(browser: Browser, email: string, password: string
     await p.waitForTimeout(1500);
     const text = await p.locator('aside').first().innerText({ timeout: 5000 }).catch(() => ''); // a user without any menu has no sidebar at all
     // drop the brand line and the footer with the user name / e-mail
-    return text.split(/\r?\n/).map((s) => s.trim()).filter((s) => s && !/MEDIA CONTROL SYSTEM/.test(s) && !s.includes('@') && !/^QT$/.test(s) && !/^QA Test User/.test(s));
+    return text.split(/\r?\n/).map((s) => s.trim()).filter((s) => s && !/MEDIA CONTROL SYSTEM/.test(s) && !s.includes('@') && !/^QT$/.test(s) && !/^QA Test User/.test(s) && !/^(\?|Loading\.\.\.)$/.test(s)); // "?" / "Loading..." = the footer of a user whose profile did not load (inactive group)
   };
   return {
     ok,

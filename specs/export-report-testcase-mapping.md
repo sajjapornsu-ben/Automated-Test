@@ -32,7 +32,7 @@ Run: `npx playwright test "Dashboard/"`.
 | TRX-H01 / AIR-H01/H02 split vs join by Format | 21-01 | |
 | TRX-H02/E01/E02, AIR-H03 search, case, spaces | 21-02 | count == API |
 | TRX-H04, AIR-H04 Sales / Total (Sec) | 22-01 | rounding tolerance |
-| TRX/AIR-H05/H06 export = table, 26 columns | 21-04, 14-05, 15-03 | Job Type compared as "non-empty" only |
+| TRX/AIR-H05/H06 export = table, 27 columns | 21-04, 14-05, 15-03 | Job Type compared as "non-empty" only |
 | TRX/AIR-N01, N03 From > To, export 500 | 21-05 | |
 | TRX/AIR approve-status filters | 14-04, 15-02 | |
 | BIL-U01..U09 arithmetic | 23-01 | quota 3, rate 7000, Σ = Grand Total |

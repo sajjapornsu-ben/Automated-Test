@@ -10,6 +10,7 @@ const parts = (ddmmyyyy: string) => ddmmyyyy.split('/').map(Number) as [number, 
 
 test.describe('Export Report — SLA tab (PB-2116)', () => {
   test('SLA-H07/E03 From/To are inclusive and From = To returns that whole day', { tag: ['@happy', '@edge'] }, async ({ page }) => {
+    test.setTimeout(120000); // four date-picker selections + two table reads: > 30 s when the run is slow
     await loginAs(page, 'headCg');
     await openDashboard(page);
     await goToReport(page, 'SLA');

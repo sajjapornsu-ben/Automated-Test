@@ -5,7 +5,7 @@
 import { test, expect } from '@playwright/test';
 import * as path from 'path';
 import * as XLSX from 'xlsx';
-import { login, openCreateTicket, switchToManualMode, fillTicketHeader, closeOpenPopover, pickDate } from './_helpers';
+import { login, openCreateTicket, switchToManualMode, fillTicketHeader, closeOpenPopover, pickDate, popover, summary } from './_helpers';
 
 type CaseRow = {
   Client: string;
@@ -33,8 +33,8 @@ test.describe('Data-driven testing (POC)', () => {
 
       // Add a Job, select the row's Package, fill Material/Brief from the row.
       await page.getByRole('button', { name: 'Add Job' }).click();
-      await page.getByRole('button', { name: 'Select Package' }).click();
-      await page.getByRole('button', { name: row.Package, exact: true }).click();
+      await page.getByRole('button', { name: 'Select Sale Package' }).click();
+      await popover(page, 'Select Sale Package').getByRole('button', { name: row.Package, exact: true }).click();
       await closeOpenPopover(page);
 
       const periodBtns = page.getByRole('button', { name: 'DD/MM/YYYY' });
@@ -51,8 +51,8 @@ test.describe('Data-driven testing (POC)', () => {
       // The Ticket Header and Ticket summary reflect the row's data.
       await expect(page.getByRole('textbox', { name: 'Enter client name...' })).toHaveValue(row.Client);
       await expect(page.getByRole('textbox', { name: 'Enter product name...' })).toHaveValue(row.Product);
-      await expect(page.getByRole('button', { name: 'Select Package' })).toHaveText(row.Package);
-      await expect(page.getByText(row.Package.split(' (')[0], { exact: true })).toBeVisible();
+      await expect(page.getByRole('button', { name: 'Select Sale Package' })).toHaveText(row.Package);
+      await expect(summary(page)).toContainText(row.Package.split(' (')[0]);
 
       // Does not submit — this POC only proves the fill mechanism works.
     });

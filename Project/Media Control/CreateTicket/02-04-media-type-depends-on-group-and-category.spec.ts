@@ -1,36 +1,27 @@
-// ก่อนเลือก Media Group ช่อง Media Type ต้องเลือกไม่ได้ พอเลือก Group แล้วค่อยเปิดตัวเลือกได้
-// spec: specs/create-ticket-plan.md (2.4, PB-1861)
+// ลำดับใหม่ Media Group → Media Category → Media Type (Epicor/SF): ก่อนเลือก Category ช่อง Media Type ต้องเลือกไม่ได้ ("Select Media Category first...") พอเลือกแล้วจึงแสดงเฉพาะ Type ของ Group/Category นั้น (UAT มีให้เลือกที่ Retail > DIGITAL > QATEST เท่านั้น)
+// spec: specs/create-ticket-plan.md (2.4, PB-1861) — UX ใหม่ 28 ต.ค.
 // seed: seed.spec.ts
 
 import { test, expect } from '@playwright/test';
-import { login, openCreateTicket, switchToManualMode, closeOpenPopover } from './_helpers';
+import { login, openCreateTicket, switchToManualMode, pickMulti, popover, MEDIA } from './_helpers';
 
 test.describe('Ticket Header', () => {
-  test('Media Type options depend on the selected Media Group', async ({ page }) => {
+  test('Media Type (Epicor/SF) options depend on the selected Media Group and Category', async ({ page }) => {
     await login(page);
     await openCreateTicket(page);
     await switchToManualMode(page);
 
-    const mediaTypeBtn = page.getByRole('button', { name: 'Select media type' });
-    await expect(mediaTypeBtn).toHaveText('Select Media Group first...');
+    const typeBtn = page.getByRole('button', { name: 'Select media type (Epicor/SF)' });
 
-    // 1. Complete steps from 2.3 (select Category then Group).
-    await page.getByRole('button', { name: 'Select media category' }).click();
-    await page.getByRole('button', { name: 'DIGITAL', exact: true }).click();
-    await closeOpenPopover(page);
+    // Not usable until a Media Group and a Media Category are chosen.
+    await expect(typeBtn).toHaveText('Select Media Category first...');
+    await pickMulti(page, 'Select media group', MEDIA.group);
+    await expect(typeBtn).toHaveText('Select Media Category first...');
 
-    await expect(mediaTypeBtn).toHaveText('Select Media Group first...');
-
-    const mediaGroupBtn = page.getByRole('button', { name: 'Select media group' });
-    await mediaGroupBtn.click();
-    await page.getByRole('button', { name: 'Digital', exact: true }).click();
-    await closeOpenPopover(page);
-
-    // 2. Open the Media Type selector.
-    await expect(mediaTypeBtn).toHaveText('Select media type(s)...');
-    await mediaTypeBtn.click();
-
-    // Media Type becomes enabled only after a Media Group is chosen, and lists options.
-    await expect(page.getByRole('button', { name: 'Plan B TV', exact: true })).toBeVisible();
+    // After the Category is chosen the field opens and lists the types of that Group / Category.
+    await pickMulti(page, 'Select media category', MEDIA.category);
+    await expect(typeBtn).toHaveText('Select Media Type (Epicor/SF)...');
+    await typeBtn.click({ force: true });
+    await expect(popover(page, 'Select media type (Epicor/SF)').getByRole('button', { name: MEDIA.type, exact: true })).toBeVisible();
   });
 });

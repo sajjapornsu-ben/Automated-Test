@@ -1,40 +1,5 @@
 [
  {
-  "where": "/mediaApproval/dashboard",
-  "kind": "text",
-  "text": "ไฟล์สำเร็จ (Final File)"
- },
- {
-  "where": "/mediaApproval/dashboard",
-  "kind": "text",
-  "text": "มีโปรเจค AE/PR"
- },
- {
-  "where": "/mediaApproval/dashboard",
-  "kind": "text",
-  "text": "Mockup (เสนอขาย)"
- },
- {
-  "where": "/mediaApproval/dashboard",
-  "kind": "text",
-  "text": "งานอื่นๆ (Other)"
- },
- {
-  "where": "/mediaApproval/assignTicket",
-  "kind": "title",
-  "text": "Media Type (Epicor/SF): ทดสอบ-"
- },
- {
-  "where": "/mediaApproval/productionReview",
-  "kind": "title",
-  "text": "Media Type (Epicor/SF): ทดสอบ-"
- },
- {
-  "where": "/mediaApproval/mediaManagement",
-  "kind": "title",
-  "text": "Media Type (Epicor/SF): ทดสอบ-"
- },
- {
   "where": "/report/kpiDashboard",
   "kind": "text",
   "text": "Assignment SLA เฉลี่ย"
@@ -177,121 +142,16 @@
  {
   "where": "/report/auditLog",
   "kind": "text",
-  "text": "ตั้งแต่"
+  "text": "QA Test จว 608329"
  },
  {
   "where": "/report/auditLog",
   "kind": "text",
-  "text": "ถึง"
+  "text": "QA Test อ 608329"
  },
  {
   "where": "/report/auditLog",
   "kind": "text",
-  "text": "เวลา"
- },
- {
-  "where": "/report/auditLog",
-  "kind": "text",
-  "text": "ผู้ใช้"
- },
- {
-  "where": "/report/auditLog",
-  "kind": "text",
-  "text": "รายการ"
- },
- {
-  "where": "/settings/userManagement › \"Create User\" form › empty Save (validation)",
-  "kind": "text",
-  "text": "กรุณากรอก First name"
- },
- {
-  "where": "/settings/userManagement › \"Create User\" form › empty Save (validation)",
-  "kind": "text",
-  "text": "กรุณากรอก Last name"
- },
- {
-  "where": "/settings/userManagement › \"Create User\" form › empty Save (validation)",
-  "kind": "text",
-  "text": "กรุณากรอก Email"
- },
- {
-  "where": "/settings/userManagement › \"Create User\" form › empty Save (validation)",
-  "kind": "text",
-  "text": "กรุณาเลือก User Group"
- },
- {
-  "where": "/settings/userManagement › \"Create User\" form › empty Save (validation)",
-  "kind": "text",
-  "text": "กรุณากรอก Password"
- },
- {
-  "where": "/settings/userManagement › \"Create User\" form › empty Save (validation)",
-  "kind": "text",
-  "text": "กรุณากรอก Confirm Password"
- },
- {
-  "where": "/settings/masterData/holiday › \"Create Holiday\" form",
-  "kind": "text",
-  "text": "ตุลาคม"
- },
- {
-  "where": "/settings/masterData/holiday › \"Create Holiday\" form",
-  "kind": "text",
-  "text": "มกราคม"
- },
- {
-  "where": "/settings/masterData/holiday › \"Create Holiday\" form",
-  "kind": "text",
-  "text": "กุมภาพันธ์"
- },
- {
-  "where": "/settings/masterData/holiday › \"Create Holiday\" form",
-  "kind": "text",
-  "text": "มีนาคม"
- },
- {
-  "where": "/settings/masterData/holiday › \"Create Holiday\" form",
-  "kind": "text",
-  "text": "เมษายน"
- },
- {
-  "where": "/settings/masterData/holiday › \"Create Holiday\" form",
-  "kind": "text",
-  "text": "พฤษภาคม"
- },
- {
-  "where": "/settings/masterData/holiday › \"Create Holiday\" form",
-  "kind": "text",
-  "text": "มิถุนายน"
- },
- {
-  "where": "/settings/masterData/holiday › \"Create Holiday\" form",
-  "kind": "text",
-  "text": "กรกฎาคม"
- },
- {
-  "where": "/settings/masterData/holiday › \"Create Holiday\" form",
-  "kind": "text",
-  "text": "สิงหาคม"
- },
- {
-  "where": "/settings/masterData/holiday › \"Create Holiday\" form",
-  "kind": "text",
-  "text": "กันยายน"
- },
- {
-  "where": "/settings/masterData/holiday › \"Create Holiday\" form",
-  "kind": "text",
-  "text": "พฤศจิกายน"
- },
- {
-  "where": "/settings/masterData/holiday › \"Create Holiday\" form",
-  "kind": "text",
-  "text": "ธันวาคม"
- },
- {
-  "where": "/settings/masterData/holiday › \"Create Holiday\" form",
-  "kind": "text",
-  "text": "อังคาร 27 ตุลาคม 2026"
+  "text": "QA Test ต 608329"
  }
 ]

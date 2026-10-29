@@ -114,9 +114,9 @@ cross-card invariants below, which held across every role and filter tried.
     below").
   | Tab | Description | Filters | Export file | Sheets |
   |---|---|---|---|---|
-  | SLA | Feedback & Progress SLA per job, with the filters applied below | Status, Media, Graphic, From, To | `SLA_Report_DDMMYYYY_HHmm.xlsx` | "SLA Report" (10 cols: Job No, Ticket, Client, Product, Media, Graphic, Status, Feedback SLA, Progress SLA, Created Date) |
-  | Transaction | 26 columns, one row per Format of each job | Search (Quote / Company / Product), Sale Approve, Landlord Approve, From, To | `Transaction_Report_DDMMYYYY_HHmm.xlsx` | "Transaction Report" (26 cols) |
-  | Airtime | 26 columns, one row per job with every Format listed together | same as Transaction | `Airtime_Report_DDMMYYYY_HHmm.xlsx` | "Airtime Report" (same 26 cols) |
+  | SLA | Feedback & Progress SLA per job, with the filters applied below | Status, Media, Graphic, From, To | `SLA_Report_DDMMYYYY_HHmm.xlsx` | "SLA Report" (11 cols: Job No, Ticket, Client, Product, Media, Media Type (Epicor/SF), Graphic, Status, Feedback SLA, Progress SLA, Created Date) |
+  | Transaction | 26 columns, one row per Format of each job | Search (Quote / Company / Product), Sale Approve, Landlord Approve, From, To | `Transaction_Report_DDMMYYYY_HHmm.xlsx` | "Transaction Report" (27 cols) |
+  | Airtime | 26 columns, one row per job with every Format listed together | same as Transaction | `Airtime_Report_DDMMYYYY_HHmm.xlsx` | "Airtime Report" (same 27 cols) |
   | Billing | Charges for Prove rounds beyond each job's free quota — exports 2 sheets | Status, Media, Graphic, From, To | `ค่าใช้จ่าย Prove เกิน DD Mon YY.xlsx` | "สรุป" (No., สื่อ/Pack, สินค้า, Version, จำนวน Prove จริง, จำนวน Prove ที่เกิน, Rate / Prove, มูลค่า Prove ที่เกิน) + "รายละเอียด Prove" (12 cols) |
   - After each export a modal "Export Successful" appears ("Exported N records to Excel"; Billing:
     "Exported N groups to Excel (sheet สรุป) · M Prove rows in sheet รายละเอียด Prove") with an
@@ -240,8 +240,9 @@ package's values; the matching row in "Tickets & Jobs by Sale Package" is `[pres
 
 #### 3.4 Select All / Clear
 **Steps:** 1. Click "Select All", then "Clear".
-**Expected:** Select All ticks every package; Clear unticks all and the bar returns to "All Sale
-Packages (in my scope)".
+**Expected:** Select All ticks every package; Total Jobs equals the unfiltered one; Total Tickets equals the unfiltered
+one minus the Draft tickets that have no Job yet (no Sale Package, so the package filter cannot match them — confirmed
+by the team 28 Oct, not a defect). Clear unticks all and the bar returns to "All Sale Packages (in my scope)".
 
 #### 3.5 The top "Clear" button resets the filter
 **Steps:** 1. Apply a package (3.3). 2. Click the bar's "Clear".
@@ -396,8 +397,8 @@ to 10 of N"; Next/Prev move pages; Prev disabled on page 1 *(to verify)*.
 ### 13. Export Report — SLA tab (Head CG)
 
 #### 13.1 Table columns
-**Expected:** Job No, Ticket, Client, Product, Media, Graphic, Status, Feedback SLA, Progress SLA,
-Created Date.
+**Expected:** Job No, Ticket, Client, Product, Media, Media Type (Epicor/SF), Graphic, Status, Feedback SLA,
+Progress SLA, Created Date (11 columns).
 
 #### 13.2 Status filter options and effect
 **Expected:** Options as listed in Assumptions; choosing one (e.g. Done) lowers "Showing N" and
@@ -415,7 +416,7 @@ Findings)*.
 
 #### 13.6 Export SLA downloads a matching Excel file
 **Steps:** 1. Click "Export SLA".
-**Expected:** Download named `SLA_Report_DDMMYYYY_HHmm.xlsx`; one sheet "SLA Report" with the 10
+**Expected:** Download named `SLA_Report_DDMMYYYY_HHmm.xlsx`; one sheet "SLA Report" with the 11
 headers; data rows = "Showing N records"; dialog "Export Successful — Exported N records to Excel";
 OK closes it.
 
@@ -427,7 +428,7 @@ OK closes it.
 
 ### 14. Export Report — Transaction tab (Head CG)
 
-#### 14.1 Table has the 26 report columns
+#### 14.1 Table has the 27 report columns
 **Expected:** Transaction Date … Date Landlord Approve (see Assumptions table).
 
 #### 14.2 Search by Quote / Company / Product
@@ -441,7 +442,7 @@ OK closes it.
 **Expected:** Options All / Approved / Pending / Rejected; picking one narrows rows to that status.
 
 #### 14.5 Export Transaction downloads a matching file
-**Expected:** `Transaction_Report_DDMMYYYY_HHmm.xlsx`, sheet "Transaction Report", 26 headers, rows
+**Expected:** `Transaction_Report_DDMMYYYY_HHmm.xlsx`, sheet "Transaction Report", 27 headers, rows
 = "Showing N"; success dialog.
 
 ---
@@ -455,7 +456,7 @@ OK closes it.
 **Expected:** Same behaviour as 14.2–14.4.
 
 #### 15.3 Export Airtime downloads a matching file
-**Expected:** `Airtime_Report_DDMMYYYY_HHmm.xlsx`, sheet "Airtime Report", 26 headers, rows =
+**Expected:** `Airtime_Report_DDMMYYYY_HHmm.xlsx`, sheet "Airtime Report", 27 headers, rows =
 "Showing N"; success dialog.
 
 ---
@@ -575,7 +576,7 @@ Full ID → file mapping, non-automatable list, doc-vs-app discrepancies and the
 |---|---|---|
 | 19 | 19-01..19-04 | filters persist across tabs, double-click export, Sale 403, anonymous 401 |
 | 20 | 20-01..20-12 | SLA: 24h feedback rule, "-" cells, order, counts, filters AND, inclusive dates, open-ended dates, export = table row-by-row, DD/MM/YYYY, From > To, reset, export 500/abort |
-| 21 | 21-01..21-05 | Transaction/Airtime: split vs joined formats, search (API parity, case, spaces), `%` wildcard (expected-fail), export = table (26 cols), From > To + export 500 |
+| 21 | 21-01..21-05 | Transaction/Airtime: split vs joined formats, search (API parity, case, spaces), `%` wildcard (expected-fail), export = table (27 cols), From > To + export 500 |
 | 22 | 22-01 | Sales parity and Total (Sec) = Durations × spots |
 | 23 | 23-01..23-04 | Billing: arithmetic invariants, workbook structure + reconcile, filters on both sheets, From > To + export 500 |
 | 24 | 24-01 | role report scope ⊆ Super Admin; CG cannot widen via `graphicUserId` |

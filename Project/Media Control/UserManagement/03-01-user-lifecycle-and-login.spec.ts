@@ -108,8 +108,8 @@ test.describe('User Management — QA user lifecycle', () => {
       await pw.nth(0).fill('short');
       await pw.nth(1).fill('other');
       await e.getByRole('button', { name: 'Save Changes' }).click();
-      await expect(e).toContainText('Password ต้องมีอย่างน้อย 8 ตัวอักษร');
-      await expect(e).toContainText('Password ไม่ตรงกัน');
+      await expect(e).toContainText('Password must be at least 8 characters');
+      await expect(e).toContainText('Password does not match');
       await expect(e).toBeVisible();
 
       // valid new password

@@ -11,12 +11,12 @@ test.describe('Master Data — landing search', () => {
   test('MD-LAND-03 search narrows the cards, no match shows empty state, Reset restores all', { tag: ['@happy', '@edge'] }, async ({ page }) => {
     await loginSuperAdmin(page);
     await page.goto(BASE);
-    await expect(page.getByText('Showing 24 categories')).toBeVisible({ timeout: 30000 });
+    await expect(page.getByText('Showing 23 categories')).toBeVisible({ timeout: 30000 });
     const cards = page.locator('main a[href^="/settings/masterData/"]');
 
     await page.getByPlaceholder(SEARCH).fill('Province');
-    // the search also matches descriptions (Area / Road mention Province), so: fewer than 24, Province present, every card mentions it
-    await expect.poll(() => cards.count()).toBeLessThan(24);
+    // the search also matches descriptions (Area / Road mention Province), so: fewer than 23, Province present, every card mentions it
+    await expect.poll(() => cards.count()).toBeLessThan(23);
     await expect(page.locator(`main a[href="/settings/masterData/province"]`)).toBeVisible();
     for (const t of await cards.allInnerTexts()) expect(t.toLowerCase()).toContain('province');
 
@@ -29,7 +29,7 @@ test.describe('Master Data — landing search', () => {
     await expect(cards).toHaveCount(0);
 
     await page.getByRole('button', { name: 'Reset' }).click();
-    await expect(cards).toHaveCount(24);
+    await expect(cards).toHaveCount(23);
     await expect(page.getByPlaceholder(SEARCH)).toHaveValue('');
   });
 });

@@ -1,4 +1,4 @@
-// กด Export Airtime แล้วต้องได้ Airtime_Report_DDMMYYYY_HHmm.xlsx ชีต "Airtime Report" 26 หัวคอลัมน์ จำนวนแถวตรงกับ "Showing N records"
+// กด Export Airtime แล้วต้องได้ Airtime_Report_DDMMYYYY_HHmm.xlsx ชีต "Airtime Report" 27 หัวคอลัมน์ จำนวนแถวตรงกับ "Showing N records"
 // spec: specs/mediaapproval-dashboard-plan.md (15.3) — PB-2113 BR45
 // seed: seed.spec.ts
 

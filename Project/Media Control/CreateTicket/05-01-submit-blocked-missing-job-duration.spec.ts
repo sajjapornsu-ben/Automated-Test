@@ -3,7 +3,7 @@
 // seed: seed.spec.ts
 
 import { test, expect } from '@playwright/test';
-import { login, openCreateTicket, switchToManualMode, fillTicketHeader, closeOpenPopover, pickDate } from './_helpers';
+import { login, openCreateTicket, switchToManualMode, fillTicketHeader, addJobWithPackage, pickDate } from './_helpers';
 
 test.describe('Validation', () => {
   test('Submitting with a missing Job Duration is blocked', async ({ page }) => {
@@ -13,11 +13,7 @@ test.describe('Validation', () => {
     await fillTicketHeader(page, { client: 'QA Val Duration Client', product: 'QA Val Duration Product' });
 
     // 1. Add a Job with a Package selected, but leave Job Duration (min/sec) empty.
-    await page.getByRole('button', { name: 'Add Job' }).click();
-
-    await page.getByRole('button', { name: 'Select Package' }).click();
-    await page.getByRole('button', { name: 'PlanBTV_80Red (Plan B TV)', exact: true }).click();
-    await closeOpenPopover(page);
+    await addJobWithPackage(page);
 
     const periodBtns = page.getByRole('button', { name: 'DD/MM/YYYY' });
     await pickDate(page, periodBtns.nth(0), 1);
@@ -30,8 +26,8 @@ test.describe('Validation', () => {
     // 2. Click "Submit ticket".
     await page.getByRole('button', { name: 'Submit ticket' }).click();
 
-    // A "Something Went Wrong" dialog appears with the Duration-specific message.
-    await expect(page.getByRole('heading', { name: 'Something Went Wrong' })).toBeVisible();
+    // A "Incomplete Information" dialog appears with the Duration-specific message.
+    await expect(page.getByRole('heading', { name: 'Incomplete Information' })).toBeVisible();
     await expect(page.getByText('Please specify the Duration (minutes and seconds) for every Job')).toBeVisible();
 
     // The Duration inputs are outlined in red.

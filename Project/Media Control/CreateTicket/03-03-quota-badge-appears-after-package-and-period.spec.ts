@@ -3,7 +3,7 @@
 // seed: seed.spec.ts
 
 import { test, expect } from '@playwright/test';
-import { login, openCreateTicket, switchToManualMode, fillTicketHeader, closeOpenPopover, pickDate } from './_helpers';
+import { login, openCreateTicket, switchToManualMode, fillTicketHeader, closeOpenPopover, pickDate, popover, PACKAGE } from './_helpers';
 
 test.describe('Job Management', () => {
   test('Job Quota badge appears once Package and Period are both set', async ({ page }) => {
@@ -16,8 +16,8 @@ test.describe('Job Management', () => {
     await expect(page.getByText('Quota —', { exact: true })).toBeVisible();
 
     // 1. Select a Package.
-    await page.getByRole('button', { name: 'Select Package' }).click();
-    await page.getByRole('button', { name: 'PlanBTV_80Red (Plan B TV)', exact: true }).click();
+    await page.getByRole('button', { name: 'Select Sale Package' }).click();
+    await popover(page, 'Select Sale Package').getByRole('button', { name: PACKAGE, exact: true }).click();
     await closeOpenPopover(page);
 
     // Package alone is not enough yet.

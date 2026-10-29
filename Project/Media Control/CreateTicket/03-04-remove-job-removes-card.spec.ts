@@ -21,6 +21,6 @@ test.describe('Job Management', () => {
 
     // The job card disappears; "Ticket details" reverts to the "No Jobs yet" empty state.
     await expect(page.getByText('1 version', { exact: true })).toHaveCount(0);
-    await expect(page.getByText('Click "Add Job" to add a Job')).toBeVisible();
+    await expect(page.getByText('Click Add Job to choose a Sale Package and its versions')).toBeVisible();
   });
 });

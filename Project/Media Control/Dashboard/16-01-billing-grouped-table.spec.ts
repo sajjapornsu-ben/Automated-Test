@@ -12,7 +12,7 @@ test.describe('Export Report — Billing tab', () => {
     await settle(page);
     await openReportTab(page, 'Billing');
 
-    await expect(page.getByText(/Showing \d+ groups/)).toBeVisible();
+    await expect(page.getByText(/Showing \d+ groups?/)).toBeVisible();
     expect(await reportHeaders(page, 'Billing')).toEqual(BILLING_COLUMNS);
     expect(await reportCount(page)).toBeGreaterThan(0);
     expect(await reportRows(page, 'Billing').count()).toBeGreaterThan(0);

@@ -16,10 +16,10 @@ test.describe('Job Type Distribution (CG)', () => {
     const { bars, legend } = await jobTypeData(page);
     expect(legend.map((l) => l.name)).toEqual([
       'Animate',
-      'ไฟล์สำเร็จ (Final File)',
-      'มีโปรเจค AE/PR',
-      'Mockup (เสนอขาย)',
-      'งานอื่นๆ (Other)',
+      'Final File',
+      'AE/PR Project',
+      'Mockup (Sales Pitch)',
+      'Other',
     ]);
     for (const l of legend) expect(l.count, l.name).toBeGreaterThanOrEqual(0);
     expect(bars).toEqual(legend.map((l) => l.count));

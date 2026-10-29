@@ -1,4 +1,4 @@
-import { Page, expect } from '@playwright/test';
+import { Page, Download, test, expect } from '@playwright/test';
 import { loginWithCache } from '../auth-cache';
 
 export type Role = 'sale' | 'mediaManagement' | 'headCg' | 'cg1' | 'cg2' | 'superAdmin';
@@ -371,11 +371,11 @@ export async function openReportTab(page: Page, tab: ReportTab) {
   await expect(reportTablist(page).getByRole('tab', { name: tab })).toHaveAttribute('aria-selected', 'true');
   await settle(page);
   // Billing aggregates Prove rounds server-side and can take a while under load.
-  if (tab === 'Billing') await page.getByText(/Showing \d+ groups/).first().waitFor({ timeout: 20000 }).catch(() => undefined);
+  if (tab === 'Billing') await page.getByText(/Showing \d+ groups?/).first().waitFor({ timeout: 20000 }).catch(() => undefined);
 }
 
 export async function reportCount(page: Page): Promise<number> {
-  const label = page.getByText(/Showing \d+ (records|groups)/).first();
+  const label = page.getByText(/Showing \d+ (records?|groups?)/).first(); // singular when there is exactly one ("Showing 1 record")
   // An empty Billing result renders no "Showing N groups" label at all — but wait a moment first, so a table
   // that is merely still loading isn't mistaken for an empty one.
   await label.waitFor({ timeout: 4000 }).catch(() => undefined);
@@ -460,13 +460,23 @@ export async function pickReportDate(page: Page, tab: ReportTab, which: 'From' |
 export const sheetRows = (wb: XLSX.WorkBook, sheet: string) =>
   XLSX.utils.sheet_to_json<any[]>(wb.Sheets[sheet], { header: 1 }) as any[][];
 
+/**
+ * Saves a download into the test output folder and returns the path. download.path() does not work when the browser is
+ * connected remotely (e.g. run from the VS Code Testing panel: "Path is not available when connecting remotely"), saveAs() does.
+ */
+export async function saveDownload(download: Download): Promise<string> {
+  const file = test.info().outputPath(download.suggestedFilename().replace(/[^\w.\-ก-๙]/g, '_') || 'export.xlsx');
+  await download.saveAs(file);
+  return file;
+}
+
 // Clicks Export, reads the downloaded workbook, dismisses the "Export Successful" dialog.
 export async function exportReport(page: Page, tab: ReportTab) {
   const [download] = await Promise.all([
     page.waitForEvent('download'),
     page.getByRole('button', { name: `Export ${tab}` }).click(),
   ]);
-  const wb = XLSX.readFile((await download.path())!);
+  const wb = XLSX.readFile(await saveDownload(download));
   await expect(page.getByRole('heading', { name: 'Export Successful' })).toBeVisible();
   // The success message is the line under the dialog heading ("Exported N records to Excel", ...).
   const dialogBody = await page.getByRole('heading', { name: 'Export Successful' }).locator('xpath=..').innerText();

@@ -4,7 +4,7 @@
 
 import { test, expect } from '@playwright/test';
 import * as XLSX from 'xlsx';
-import { loginAs, openDashboard, settle, DISPLAY_NAME, SLA_COLUMNS } from './_helpers';
+import { loginAs, openDashboard, settle, DISPLAY_NAME, SLA_COLUMNS, saveDownload } from './_helpers';
 
 const GRAPHIC_COL = SLA_COLUMNS.indexOf('Graphic'); // looked up by name so a new column does not shift it
 
@@ -18,7 +18,7 @@ test.describe('Spec conformance (PB-2112 / PB-2113)', () => {
     // Preview: show everything on one page (100 per page), then every Graphic cell must include me.
     await page.getByRole('combobox').last().selectOption('100');
     await settle(page);
-    const shown = Number((await page.getByText(/Showing \d+ records/).first().innerText()).match(/\d+/)![0]);
+    const shown = Number((await page.getByText(/Showing \d+ records?/).first().innerText()).match(/\d+/)![0]);
     expect(shown).toBeGreaterThan(0);
 
     const rows = page.getByRole('table', { name: 'Export Report Table' }).getByRole('rowgroup').last().getByRole('row');
@@ -32,7 +32,7 @@ test.describe('Spec conformance (PB-2112 / PB-2113)', () => {
       page.waitForEvent('download'),
       page.getByRole('button', { name: 'Export SLA' }).click(),
     ]);
-    const wb = XLSX.readFile((await download.path())!);
+    const wb = XLSX.readFile(await saveDownload(download));
     const data = XLSX.utils.sheet_to_json<Record<string, string>>(wb.Sheets[wb.SheetNames[0]]);
     expect(data).toHaveLength(shown);
     for (const r of data) expect(String(r['Graphic'])).toContain(me);

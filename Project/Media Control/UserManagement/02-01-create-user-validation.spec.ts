@@ -17,7 +17,7 @@ test.describe('User Management — Create User validation', () => {
 
     // empty form
     await d.getByRole('button', { name: 'Save' }).click();
-    for (const msg of ['กรุณากรอก First name', 'กรุณากรอก Last name', 'กรุณากรอก Email', 'กรุณาเลือก User Group', 'กรุณากรอก Password', 'กรุณากรอก Confirm Password']) {
+    for (const msg of ['First name is required', 'Last name is required', 'Email is required', 'User Group is required', 'Password is required', 'Confirm Password is required']) {
       await expect(d, msg).toContainText(msg);
     }
     await expect(d).toBeVisible();
@@ -29,9 +29,9 @@ test.describe('User Management — Create User validation', () => {
     await d.getByPlaceholder('••••••••').first().fill('short');
     await d.getByPlaceholder('••••••••').nth(1).fill('different');
     await d.getByRole('button', { name: 'Save' }).click();
-    await expect(d).toContainText('รูปแบบอีเมลไม่ถูกต้อง');
-    await expect(d).toContainText('Password ต้องมีอย่างน้อย 8 ตัวอักษร');
-    await expect(d).toContainText('Password ไม่ตรงกัน');
+    await expect(d).toContainText('Please enter a valid email address');
+    await expect(d).toContainText('Password must be at least 8 characters');
+    await expect(d).toContainText('Password does not match');
     await expect(d).toBeVisible();
 
     // cancel: nothing was created

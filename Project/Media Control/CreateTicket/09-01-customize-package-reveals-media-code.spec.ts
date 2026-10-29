@@ -7,6 +7,7 @@ import { login, openCreateTicket, switchToManualMode, fillTicketHeader, closeOpe
 
 test.describe('Customize Package', () => {
   test('Selecting a Customize package reveals a required Media Code field', async ({ page }) => {
+    test.fixme(true, 'No Customize Sale Package is reachable on UAT since the Media Type (Epicor/SF) change: the only Media Type with a package is Retail > DIGITAL > QATEST (7-Eleven Plus). Re-enable when a Customize package is mapped to a Media Type, and pick it in this test');
     await login(page);
     await openCreateTicket(page);
     await switchToManualMode(page);
@@ -18,7 +19,7 @@ test.describe('Customize Package', () => {
     await expect(page.getByText('Media Code', { exact: false })).toHaveCount(0);
 
     // 1. Open the Package selector, choose a "Customize ..." package.
-    await page.getByRole('button', { name: 'Select Package' }).click();
+    await page.getByRole('button', { name: 'Select Sale Package' }).click();
     await page.getByRole('button', { name: 'Customize BKK (Plan B TV)', exact: true }).click();
     await closeOpenPopover(page);
 

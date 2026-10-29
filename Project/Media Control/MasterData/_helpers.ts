@@ -15,11 +15,10 @@ export type Category = {
   search: string; // search placeholder
 };
 
-/** All 24 Master Data categories, in landing-page order. */
+/** All 23 Master Data categories, in landing-page order (Media Branding was removed and Resolution moved to /resolution on 28 Oct 2026). */
 export const ALL_CATEGORIES: Category[] = [
   { slug: 'media', card: 'Media', title: 'Media Management', create: 'Create Group', search: 'Search all levels — Group / Category / Type / Segment / Code...' },
   { slug: 'mediaTypeEpicorSf', card: 'Media Type (Epicor/Salesforce)', title: 'Media Type (Epicor/Salesforce) Management', create: 'Add Media Type (Epicor/SF)', search: 'Search Media Type (Epicor/SF)...' },
-  { slug: 'mediaBranding', card: 'Media Branding', title: 'Media Branding Management', create: 'Create Media Branding', search: 'Search Branding' },
   { slug: 'province', card: 'Province', title: 'Province Management', create: 'Add Province', search: 'Search all levels — Province/District/Subdistrict name/postal code...' },
   { slug: 'salePackage', card: 'Sale Package', title: 'Sale Package Management', create: 'Create Sale Package', search: 'Search Sale Package — Code, Name' },
   { slug: 'department', card: 'Department', title: 'Department Management', create: 'Create Department', search: 'Search departments...' },
@@ -33,7 +32,7 @@ export const ALL_CATEGORIES: Category[] = [
   { slug: 'trafficLight', card: 'Traffic Light', title: 'Traffic Light Name Management', create: 'Create Traffic Light', search: 'Search Traffic Light...' },
   { slug: 'format', card: 'Format', title: 'Format Management', create: 'Create Format', search: 'Search Format...' },
   { slug: 'formatName', card: 'Format Name', title: 'Format Name Management', create: 'Create Format Name', search: 'Search Format Name...' },
-  { slug: 'formatRatio', card: 'Resolution', title: 'Resolution Management', create: 'Create Resolution', search: 'Search ratio, e.g. 1024x768...' },
+  { slug: 'resolution', card: 'Resolution', title: 'Resolution Management', create: 'Create Resolution', search: 'Search ratio, e.g. 1024x768...' },
   { slug: 'venueType', card: 'Venue Type', title: 'Venue Type Management', create: 'Create Venue Type', search: 'Search Venue Type...' },
   { slug: 'busModelLine', card: 'Bus Model & Line', title: 'Bus Model & Line Management', create: 'Add Bus Model', search: 'Search...' },
   { slug: 'materialType', card: 'Material Type', title: 'Material Type Management', create: 'Create Material Type', search: 'Search Material Type...' },
@@ -45,7 +44,7 @@ export const ALL_CATEGORIES: Category[] = [
 
 /** Plain "name + status" table categories (template A) — CRUD is identical for all of them. */
 export const SIMPLE_SLUGS = [
-  'mediaBranding', 'area', 'screenType', 'format', 'formatName', 'venueType',
+  'area', 'screenType', 'format', 'formatName', 'venueType',
   'materialType', 'signageType', 'position', 'structureType', 'customizationTier', 'trafficLight',
 ];
 export const byslug = (slug: string) => ALL_CATEGORIES.find((c) => c.slug === slug)!;
@@ -120,8 +119,8 @@ if (cat.slug === 'department') { await page.getByRole('button', { name: 'List' }
 
 /** Categories shown as a table with at least one record (used by the generic search / filter tests). */
 export const TABLE_SLUGS = [
-  'mediaBranding', 'salePackage', 'productOwner', 'status', 'zone', 'area', 'screenType', 'road', 'format', 'formatName',
-  'formatRatio', 'venueType', 'busModelLine', 'materialType', 'signageType', 'position', 'structureType', 'customizationTier',
+  'salePackage', 'productOwner', 'status', 'zone', 'area', 'screenType', 'road', 'format', 'formatName',
+  'resolution', 'venueType', 'busModelLine', 'materialType', 'signageType', 'position', 'structureType', 'customizationTier',
 ];
 
 /**
@@ -133,7 +132,7 @@ export async function sampleSearchTerm(page: Page, slug = ''): Promise<string> {
   const n = Math.min(await rows.count(), 10);
   for (let i = 0; i < n; i++) {
     const cells = (await rows.nth(i).locator('td').allInnerTexts()).map((c) => c.replace(/\s+/g, ' ').trim());
-    if (slug === 'formatRatio') return `${cells[1]}x${cells[2]}`;
+    if (slug === 'resolution') return `${cells[1]}x${cells[2]}`;
     if (slug === 'road' && cells[2]) return cells[2]; // column 1 is the row number
     if (cells[1] && cells[1] !== '-') return cells[1];
   }
@@ -161,8 +160,19 @@ export async function rowActionUntil(row: Locator, name: 'Edit' | 'Delete' | 'Ac
 
 /** The TOTAL tile at the top of a category page (falls back to the table footer when the page has no tiles). */
 export async function totalTile(page: Page): Promise<number> {
-  const m = (await page.locator('main').first().innerText()).replace(/\s+/g, ' ').match(/TOTAL (\d+)/);
-  return m ? Number(m[1]) : footerTotal(page); // some pages (e.g. Media Branding) have no summary tiles
+  const read = async () => {
+    const m = (await page.locator('main').first().innerText()).replace(/\s+/g, ' ').match(/TOTAL (\d+)/);
+    return m ? Number(m[1]) : footerTotal(page); // some pages have no summary tiles
+  };
+  // The tiles count up (animated): a value read right after the page opens can be one short (177 → 178). Wait until two reads agree.
+  let last = await read();
+  for (let i = 0; i < 8; i++) {
+    await page.waitForTimeout(700);
+    const now = await read();
+    if (now === last) return now;
+    last = now;
+  }
+  return last;
 }
 
 /** The delete confirmation ("Confirm Delete …" / "Confirm delete …") — its wording and confirm button differ between categories. */

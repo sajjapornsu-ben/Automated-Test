@@ -6,7 +6,7 @@
 // พร้อมกัน ข้อความที่ขึ้นจะเป็นของ Material ก่อนเสมอ (ตรวจสอบจริงแล้ว)
 
 import { test, expect } from '@playwright/test';
-import { login, openCreateTicket, switchToManualMode, fillTicketHeader, closeOpenPopover, pickDate } from './_helpers';
+import { login, openCreateTicket, switchToManualMode, fillTicketHeader, addJobWithPackage, pickDate } from './_helpers';
 
 test.describe('Validation', () => {
   test('Submitting with a missing Material or Brief is blocked', async ({ page }) => {
@@ -17,11 +17,7 @@ test.describe('Validation', () => {
 
     // 1. Add a Job with Package/Duration/Period set, and a Version with Duration set —
     // but leave Material and Brief both empty.
-    await page.getByRole('button', { name: 'Add Job' }).click();
-
-    await page.getByRole('button', { name: 'Select Package' }).click();
-    await page.getByRole('button', { name: 'PlanBTV_80Red (Plan B TV)', exact: true }).click();
-    await closeOpenPopover(page);
+    await addJobWithPackage(page);
 
     const periodBtns = page.getByRole('button', { name: 'DD/MM/YYYY' });
     await pickDate(page, periodBtns.nth(0), 1);
@@ -34,7 +30,7 @@ test.describe('Validation', () => {
     await page.getByRole('button', { name: 'Submit ticket' }).click();
 
     // Submission is blocked with an error indicating Material is required.
-    await expect(page.getByRole('heading', { name: 'Something Went Wrong' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Incomplete Information' })).toBeVisible();
     await expect(page.getByText('Please provide Material (link or attached file) for every Version')).toBeVisible();
 
     const materialLinkBox = page.getByRole('textbox', { name: 'Paste 1 Link...' }).first();

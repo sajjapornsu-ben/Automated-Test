@@ -25,7 +25,7 @@ test.describe('User Group Management — QA group CRUD', () => {
       // a name is required
       await page.getByRole('button', { name: 'Add User Group', exact: true }).click();
       await saveGroup(page);
-      await expect(drawer(page)).toContainText(/กรุณา|required/i);
+      await expect(drawer(page)).toContainText('User Group Name is required');
       await expect(drawer(page)).toBeVisible();
       await drawer(page).getByRole('button', { name: 'Cancel' }).click();
       await expect(drawer(page)).toBeHidden();
@@ -33,7 +33,7 @@ test.describe('User Group Management — QA group CRUD', () => {
       // create with MEDIA APPROVAL > Dashboard and SETTING > UI Kit
       await page.getByRole('button', { name: 'Add User Group', exact: true }).click();
       await fillGroup(page, { name, description: 'QA Test group — created by Playwright', access: { 'MEDIA APPROVAL': ['Dashboard'], SETTING: ['UI Kit'] } });
-      await expect(drawer(page)).toContainText(/เลือกแล้ว\s*2\s*ระบบ\s*·\s*2\s*เมนู/);
+      await expect(drawer(page)).toContainText(/Selected 2 systems · 2 menus/);
       await saveGroup(page);
       await expect(drawer(page)).toBeHidden({ timeout: 15000 });
       await dismissOk(page);

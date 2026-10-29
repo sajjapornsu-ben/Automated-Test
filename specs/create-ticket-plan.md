@@ -477,3 +477,22 @@ other submit test).
 - Note: the `data/generate-sample-xlsx.js` script is now out of sync with the live `.xlsx` (the
   user edited the spreadsheet directly rather than through the script) — that's fine, the script
   is just an optional convenience for code-based edits and isn't read by the tests.
+
+## Update 28 Oct 2026 — new "Ticket source" UX (dev change)
+
+The page is now three numbered sections plus a summary panel. The old QT / manual **switch** is replaced by two toggle buttons.
+
+| Area | Before | Now |
+|---|---|---|
+| Source | switch "No Quotation Number" (default OFF) | section **1 Ticket source**: buttons **Pull from Salesforce** (selected by default, `aria-pressed`) and **No Quotation Number**; Pull from Salesforce shows "Quotation Number" search + **Pull SF data** |
+| Manual banner | "Manual entry mode — No Quotation Number, fill in details manually" | "Manual entry mode — fill in the ticket information below" |
+| Header | Category → Group → Type | section **2 Ticket information**: **Media Group → Media Category → Media Type (Epicor/SF)** (each level narrows the next; placeholders "Select Media Group first..." / "Select Media Category first...") |
+| Jobs | "Select Package" | section **3 Jobs**: "Select Sale Package"; list depends on the Media Type ("— Select Media Type first —") |
+| Empty jobs | `Click "Add Job" to add a Job` | "No Jobs yet — Click Add Job to choose a Sale Package and its versions" |
+| Submit validation | dialog "Something Went Wrong" | dialog **"Incomplete Information"** (same messages) |
+| Quota dialog | "This Package has a Version Quota of 3 …" | "This **Sale Package** has a Version Quota of 3 …" |
+| Version Duration | visible "Select duration" button | the button is zero-size; click the field that shows the value ("7.5 seconds") |
+
+Test data: the only Media Type (Epicor/SF) on UAT with a Sale Package is **Retail > DIGITAL > QATEST** → package **7-Eleven Plus (QATEST)** (`MEDIA` / `PACKAGE` in `CreateTicket/_helpers.ts`). Every other Group / Category pair has no Media Type, so no package can be chosen.
+
+Spec changes: 01-01 / 01-02 rewritten for the new source buttons; 02-03 / 02-04 renamed and rewritten for the new cascade order; 03–05, 08, 10, 12 use `addJobWithPackage`. **09-01 / 09-02 (Customize package + Media Code) are `fixme`** — no Customize package is reachable with the data above. The submit tests (06-01, 06-02, 11-01, 12-02 ×2 rows) are updated and were **run on UAT on 28 Oct (all 5 pass)** — they create real QA tickets and send notification e-mails.

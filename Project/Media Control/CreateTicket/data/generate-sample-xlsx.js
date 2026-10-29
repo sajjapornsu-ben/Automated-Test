@@ -7,7 +7,7 @@ const rows = [
   {
     Client: 'Auto Add 1',
     Product: 'Auto Add 1',
-    Package: 'PlanBTV_80Red (Plan B TV)',
+    Package: '7-Eleven Plus (QATEST)', // the only Sale Package reachable on UAT (Retail > DIGITAL > QATEST) - see _helpers.ts
     DurationMinutes: 1,
     DurationSeconds: 15,
     MaterialLink: 'https://example.com/sheet-a-material.jpg',
@@ -16,7 +16,7 @@ const rows = [
   {
     Client: 'Auto Add 2',
     Product: 'Auto Add 2',
-    Package: 'PlanBTV_40Blue (Plan B TV)',
+    Package: '7-Eleven Plus (QATEST)',
     DurationMinutes: 2,
     DurationSeconds: 20,
     MaterialLink: 'https://example.com/sheet-b-material.jpg',

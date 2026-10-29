@@ -9,8 +9,8 @@ test.describe('Test group', () => {
     }
 
     await page.goto('https://uat-mediacontrol.planbmedia.co.th/login');
-    await page.getByRole('textbox', { name: 'อีเมล' }).fill(email);
-    await page.getByRole('textbox', { name: 'รหัสผ่าน' }).fill(password);
+    await page.getByRole('textbox', { name: /^(อีเมล|Email)/ }).fill(email);
+    await page.getByRole('textbox', { name: /^(รหัสผ่าน|Password)/ }).fill(password);
     await page.getByRole('button', { name: 'Sign In', exact: true }).click();
 
     await expect(page.getByRole('button', { name: 'Log Out' })).toBeVisible();

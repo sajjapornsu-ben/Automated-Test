@@ -20,7 +20,9 @@ test.describe('Cancel Job', () => {
     await expect(dialog).toBeVisible();
     await expect(dialog).toContainText(`${FIXTURE_TICKET_NO.replace('TK-', 'JOB-')}-01`);
     await expect(dialog).toContainText('This cancels only this Job. The Ticket and other Jobs keep their current status.');
-    await expect(dialog.getByRole('combobox', { name: 'Cancel Reason' })).toBeVisible();
+    await expect(dialog.getByText('Cancel Reason')).toBeVisible();
+    await expect(dialog.getByText('— Select Reason —')).toBeVisible(); // a select (react-aria), not a native combobox
+    await expect(dialog.getByRole('button', { name: /Cancel Reason$/ })).toHaveCount(1);
     await expect(dialog.getByRole('textbox', { name: 'Remark' })).toBeVisible();
     await expect(dialog.getByRole('button', { name: 'Confirm Cancel' })).toBeVisible();
   });

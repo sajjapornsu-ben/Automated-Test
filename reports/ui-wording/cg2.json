@@ -1,40 +1,5 @@
 [
  {
-  "where": "cg2: /mediaApproval/dashboard",
-  "kind": "text",
-  "text": "ไฟล์สำเร็จ (Final File)"
- },
- {
-  "where": "cg2: /mediaApproval/dashboard",
-  "kind": "text",
-  "text": "มีโปรเจค AE/PR"
- },
- {
-  "where": "cg2: /mediaApproval/dashboard",
-  "kind": "text",
-  "text": "Mockup (เสนอขาย)"
- },
- {
-  "where": "cg2: /mediaApproval/dashboard",
-  "kind": "text",
-  "text": "งานอื่นๆ (Other)"
- },
- {
-  "where": "cg2: /mediaApproval/assignTicket",
-  "kind": "title",
-  "text": "Media Type (Epicor/SF): ทดสอบ-"
- },
- {
-  "where": "cg2: /mediaApproval/productionReview",
-  "kind": "text",
-  "text": "คุกกี้"
- },
- {
-  "where": "cg2: /mediaApproval/mediaManagement",
-  "kind": "title",
-  "text": "Media Type (Epicor/SF): ทดสอบ-"
- },
- {
   "where": "cg2: /report/kpiDashboard",
   "kind": "text",
   "text": "Assignment SLA เฉลี่ย"
@@ -173,60 +138,5 @@
   "where": "cg2: /report/monthlyReport",
   "kind": "aria-label",
   "text": "เลือกเดือน"
- },
- {
-  "where": "cg2: /report/auditLog",
-  "kind": "text",
-  "text": "ตั้งแต่"
- },
- {
-  "where": "cg2: /report/auditLog",
-  "kind": "text",
-  "text": "ถึง"
- },
- {
-  "where": "cg2: /report/auditLog",
-  "kind": "text",
-  "text": "เวลา"
- },
- {
-  "where": "cg2: /report/auditLog",
-  "kind": "text",
-  "text": "ผู้ใช้"
- },
- {
-  "where": "cg2: /report/auditLog",
-  "kind": "text",
-  "text": "รายการ"
- },
- {
-  "where": "cg2: /settings/userManagement › \"Create User\" form › empty Save (validation)",
-  "kind": "text",
-  "text": "กรุณากรอก First name"
- },
- {
-  "where": "cg2: /settings/userManagement › \"Create User\" form › empty Save (validation)",
-  "kind": "text",
-  "text": "กรุณากรอก Last name"
- },
- {
-  "where": "cg2: /settings/userManagement › \"Create User\" form › empty Save (validation)",
-  "kind": "text",
-  "text": "กรุณากรอก Email"
- },
- {
-  "where": "cg2: /settings/userManagement › \"Create User\" form › empty Save (validation)",
-  "kind": "text",
-  "text": "กรุณาเลือก User Group"
- },
- {
-  "where": "cg2: /settings/userManagement › \"Create User\" form › empty Save (validation)",
-  "kind": "text",
-  "text": "กรุณากรอก Password"
- },
- {
-  "where": "cg2: /settings/userManagement › \"Create User\" form › empty Save (validation)",
-  "kind": "text",
-  "text": "กรุณากรอก Confirm Password"
  }
 ]

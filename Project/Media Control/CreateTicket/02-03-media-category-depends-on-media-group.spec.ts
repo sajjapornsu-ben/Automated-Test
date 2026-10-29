@@ -1,35 +1,31 @@
-// ก่อนเลือก Media Category ช่อง Media Group ต้องเลือกไม่ได้ พอเลือก Category แล้วค่อยเปิดตัวเลือกได้
-// spec: specs/create-ticket-plan.md (2.3, PB-1861)
+// ลำดับใหม่ Media Group → Media Category: ก่อนเลือก Media Group ช่อง Media Category ต้องเลือกไม่ได้ ("Select Media Group first...") พอเลือก Group แล้วค่อยแสดงเฉพาะ Category ของ Group นั้น
+// spec: specs/create-ticket-plan.md (2.3, PB-1861) — UX ใหม่ 28 ต.ค.: เดิม Category → Group
 // seed: seed.spec.ts
 
 import { test, expect } from '@playwright/test';
-import { login, openCreateTicket, switchToManualMode, closeOpenPopover } from './_helpers';
+import { login, openCreateTicket, switchToManualMode, pickMulti, popover } from './_helpers';
 
 test.describe('Ticket Header', () => {
-  test('Media Group options depend on the selected Media Category', async ({ page }) => {
+  test('Media Category options depend on the selected Media Group', async ({ page }) => {
     await login(page);
     await openCreateTicket(page);
     await switchToManualMode(page);
 
-    const mediaGroupBtn = page.getByRole('button', { name: 'Select media group' });
+    const categoryBtn = page.getByRole('button', { name: 'Select media category' });
 
-    // 1. Switch to Manual mode. (done above)
-    // 2. Open the Media Group selector before choosing a Category.
-    await expect(mediaGroupBtn).toHaveText('Select Media Category first...');
-    await mediaGroupBtn.click();
-    await expect(page.getByRole('button', { name: 'Digital', exact: true })).toHaveCount(0);
+    // 2. Before choosing a Media Group the category field is not usable.
+    await expect(page.getByRole('button', { name: 'Select media group' })).toHaveText('Select media group(s)...');
+    await expect(categoryBtn).toHaveText('Select Media Group first...');
+    await categoryBtn.click({ force: true });
+    await expect(popover(page, 'Select media category').getByRole('button')).toHaveCount(0); // nothing to choose from
 
-    // 3. Choose a Media Category (e.g. "DIGITAL").
-    await page.getByRole('button', { name: 'Select media category' }).click();
-    await page.getByRole('button', { name: 'DIGITAL', exact: true }).click();
-    await closeOpenPopover(page);
+    // 3. Choose a Media Group (e.g. "Digital").
+    await pickMulti(page, 'Select media group', 'Digital');
+    await expect(page.getByRole('button', { name: 'Select media group' })).toContainText('Digital');
 
-    // 4. Open the Media Group selector again.
-    await expect(mediaGroupBtn).toHaveText('Select media group(s)...');
-    await mediaGroupBtn.click();
-
-    // Media Group becomes enabled and lists options belonging to that category.
-    await expect(page.getByRole('button', { name: 'Digital', exact: true })).toBeVisible();
-    await expect(page.getByRole('button', { name: 'Airport', exact: true })).toBeVisible();
+    // 4. Media Category becomes enabled and lists the categories of that group.
+    await expect(categoryBtn).toHaveText('Select media category(s)...');
+    await categoryBtn.click({ force: true });
+    await expect(popover(page, 'Select media category').getByRole('button', { name: 'DIGITAL', exact: true })).toBeVisible();
   });
 });

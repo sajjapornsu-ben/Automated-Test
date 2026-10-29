@@ -11,7 +11,7 @@
 import { test, expect } from '@playwright/test';
 import * as path from 'path';
 import * as XLSX from 'xlsx';
-import { login, openCreateTicket, switchToManualMode, fillTicketHeader, closeOpenPopover, pickDate } from './_helpers';
+import { login, openCreateTicket, switchToManualMode, fillTicketHeader, closeOpenPopover, pickDate, popover } from './_helpers';
 
 type CaseRow = {
   Client: string;
@@ -43,8 +43,8 @@ test.describe('Data-driven testing (POC)', () => {
       await fillTicketHeader(page, { client: clientName, product: row.Product });
 
       await page.getByRole('button', { name: 'Add Job' }).click();
-      await page.getByRole('button', { name: 'Select Package' }).click();
-      await page.getByRole('button', { name: row.Package, exact: true }).click();
+      await page.getByRole('button', { name: 'Select Sale Package' }).click();
+      await popover(page, 'Select Sale Package').getByRole('button', { name: row.Package, exact: true }).click();
       await closeOpenPopover(page);
 
       const periodBtns = page.getByRole('button', { name: 'DD/MM/YYYY' });

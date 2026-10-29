@@ -7,7 +7,7 @@
 // เทสนี้ถูก skip by default (สร้าง record จริงบน UAT) — รันด้วย RUN_UAT_SUBMIT_TESTS=1 npx playwright test
 
 import { test, expect } from '@playwright/test';
-import { login, openCreateTicket, switchToManualMode, fillTicketHeader, closeOpenPopover, pickDate } from './_helpers';
+import { login, openCreateTicket, switchToManualMode, fillTicketHeader, addJobWithPackage, pickDate } from './_helpers';
 
 test.describe('Submit & Save as Draft', () => {
   test('Full Manual-mode submission succeeds (happy path)', async ({ page }) => {
@@ -23,10 +23,7 @@ test.describe('Submit & Save as Draft', () => {
     await fillTicketHeader(page, { client: clientName, product: 'QA Test Product' });
 
     // 2. Add a Job: select a Package, set Job Duration and Job Period.
-    await page.getByRole('button', { name: 'Add Job' }).click();
-    await page.getByRole('button', { name: 'Select Package' }).click();
-    await page.getByRole('button', { name: 'PlanBTV_80Red (Plan B TV)', exact: true }).click();
-    await closeOpenPopover(page);
+    await addJobWithPackage(page);
 
     const periodBtns = page.getByRole('button', { name: 'DD/MM/YYYY' });
     await pickDate(page, periodBtns.nth(0), 1);

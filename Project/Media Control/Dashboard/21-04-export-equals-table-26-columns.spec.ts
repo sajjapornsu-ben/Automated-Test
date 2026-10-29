@@ -1,4 +1,4 @@
-// Export Transaction/Airtime ต้องได้ไฟล์ 26 คอลัมน์ จำนวนแถวเท่ากับตารางทุกหน้า และค่าแต่ละช่องตรงกับตารางทีละแถว
+// Export Transaction/Airtime ต้องได้ไฟล์ 27 คอลัมน์ จำนวนแถวเท่ากับตารางทุกหน้า และค่าแต่ละช่องตรงกับตารางทีละแถว
 // test-case: TRX-H05, TRX-H06, AIR-H05, AIR-H06 — spec: PB-2113; แผน: specs/mediaapproval-dashboard-plan.md (21.4)
 // seed: seed.spec.ts
 
@@ -20,11 +20,12 @@ for (const tab of ['Transaction', 'Airtime'] as const) {
       const [header, ...data] = sheetMatrix((await readWorkbook(file)).worksheets[0]);
       expect(header).toEqual(TRANSACTION_COLUMNS);
       expect(data.length).toBe(table.length);
-      // Known deviation: the table shows Job Type as a Thai label ("ไฟล์สำเร็จ (Final File)", "เสนอขาย") while the file holds the raw
-      // English value ("Final File", "Mockup"). So that one column is only checked to be non-empty; all others must be identical.
+      // Job Type: the table and the file now both use English values. The only difference left is the label of "Mockup":
+      // the table shows "Mockup (Sales Pitch)", the file holds the raw value "Mockup". Every other cell must be identical.
       const jt = TRANSACTION_COLUMNS.indexOf('Job Type');
-      const trim = (r: string[]) => r.map((c, i) => (i === jt ? (String(c).trim() ? "set" : "") : String(c).trim()));
-      data.forEach((row, i) => expect(trim(row), `row ${i + 1}`).toEqual(trim(table[i])));
+      const label = (r: string[]) => r.map((c, i) => (i === jt && String(c).trim() === 'Mockup' ? 'Mockup (Sales Pitch)' : String(c).trim()));
+      const trim = (r: string[]) => r.map((c) => String(c).trim());
+      data.forEach((row, i) => expect(label(row), `row ${i + 1}`).toEqual(trim(table[i])));
     });
   });
 }

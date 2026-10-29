@@ -3,7 +3,7 @@
 // seed: seed.spec.ts
 
 import { test, expect } from '@playwright/test';
-import { login, openCreateTicket, switchToManualMode, fillTicketHeader, closeOpenPopover, pickDate } from './_helpers';
+import { login, openCreateTicket, switchToManualMode, fillTicketHeader, addJobWithPackage, pickDate } from './_helpers';
 
 test.describe('Version-over-quota flow', () => {
   test('Adding a Version beyond the Quota requires an evidence file', async ({ page }) => {
@@ -13,10 +13,7 @@ test.describe('Version-over-quota flow', () => {
     await fillTicketHeader(page, { client: 'QA Overage Client', product: 'QA Overage Product' });
 
     // 1. Add a Job, select a Package + Period that gives a small Quota (e.g. "3").
-    await page.getByRole('button', { name: 'Add Job' }).click();
-    await page.getByRole('button', { name: 'Select Package' }).click();
-    await page.getByRole('button', { name: 'PlanBTV_80Red (Plan B TV)', exact: true }).click();
-    await closeOpenPopover(page);
+    await addJobWithPackage(page);
 
     const periodBtns = page.getByRole('button', { name: 'DD/MM/YYYY' });
     await pickDate(page, periodBtns.nth(0), 1);
@@ -33,7 +30,7 @@ test.describe('Version-over-quota flow', () => {
     // disabled "Confirm Add Version" button.
     await expect(page.getByRole('heading', { name: 'Version Quota Reached' })).toBeVisible();
     await expect(
-      page.getByText('This Package has a Version Quota of 3 (used 3). To add more Versions, please attach an evidence file.')
+      page.getByText('This Sale Package has a Version Quota of 3 (used 3). To add more Versions, please attach an evidence file.')
     ).toBeVisible();
     await expect(page.getByRole('button', { name: 'Attach Files' })).toBeVisible();
     await expect(page.getByRole('textbox', { name: 'Reason for requesting additional Version (optional)' })).toBeVisible();

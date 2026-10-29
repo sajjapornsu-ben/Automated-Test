@@ -1,0 +1,21 @@
+import { test } from '@playwright/test';
+import { loginAs } from './Project/Media Control/Dashboard/_helpers';
+const B = 'https://uat-mediacontrol.planbmedia.co.th';
+test('explore render 2', async ({ page }) => {
+  test.setTimeout(400000);
+  await loginAs(page, 'cg1');
+  await page.goto(B + '/mediaApproval/productionReview/JOB-26100037-01?status=Final+Render&job=JOB-26100037-01&ticket=TK-26100037&v=476');
+  await page.waitForLoadState('networkidle'); await page.waitForTimeout(3000);
+  const btn = page.getByRole('button', { name: 'Render File', exact: true });
+  console.log('BTN-BEFORE>>> enabled=' + (await btn.isEnabled()));
+  await page.getByPlaceholder('e.g. chang_metro_final').fill('qa_render_test');
+  await page.waitForTimeout(800);
+  console.log('BTN-AFTER-FILL>>> enabled=' + (await btn.isEnabled()));
+  await btn.click();
+  await page.waitForTimeout(3000);
+  console.log('ALERTS>>> ' + (await page.locator('[role=alert], [role=status], [data-sonner-toast], .toast').allInnerTexts()).join(' | '));
+  const all = (await page.locator('body').innerText()).replace(/\s+/g, ' ');
+  const i = all.indexOf('Rendered Files');
+  console.log('RENDERED>>> ' + all.slice(Math.max(0, i - 200), i + 900));
+  console.log('HEAD>>> ' + all.slice(0, 400));
+});

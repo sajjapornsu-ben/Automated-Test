@@ -155,8 +155,8 @@ export async function tryLogin(browser: Browser, email: string, password: string
   const p = await ctx.newPage();
   try {
     await p.goto('https://uat-mediacontrol.planbmedia.co.th/login');
-    await p.getByRole('textbox', { name: 'อีเมล' }).fill(email);
-    await p.getByRole('textbox', { name: 'รหัสผ่าน' }).fill(password);
+    await p.getByRole('textbox', { name: /^(อีเมล|Email)/ }).fill(email);
+    await p.getByRole('textbox', { name: /^(รหัสผ่าน|Password)/ }).fill(password);
     await p.getByRole('button', { name: 'Sign In', exact: true }).click();
     await Promise.race([p.waitForURL((u) => !u.pathname.startsWith('/login'), { timeout: 15000 }), p.getByRole('button', { name: 'OK', exact: true }).waitFor({ timeout: 15000 })]).catch(() => undefined);
     const url = new URL(p.url()).pathname;

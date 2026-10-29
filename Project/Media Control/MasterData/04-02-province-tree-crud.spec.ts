@@ -21,6 +21,19 @@ async function deleteSelected(page: Page) {
   await page.waitForTimeout(1200);
 }
 
+/** The PROVINCE tile counts up (animated), so one read right after the page loads can be low (60 instead of 77): wait until two reads agree. */
+async function provinceTile(page: import('@playwright/test').Page): Promise<number> {
+  const read = async () => Number((await page.locator('main').innerText()).replace(/\s+/g, ' ').match(/PROVINCE (\d+)/)![1]);
+  let last = await read();
+  for (let k = 0; k < 8; k++) {
+    await page.waitForTimeout(700);
+    const now = await read();
+    if (now === last) return now;
+    last = now;
+  }
+  return last;
+}
+
 test.describe('Master Data — Province tree', () => {
   test.skip(!process.env.RUN_UAT_SUBMIT_TESTS, 'Creates/edits/deletes real UAT records — set RUN_UAT_SUBMIT_TESTS=1 to run');
 
@@ -45,7 +58,7 @@ test.describe('Master Data — Province tree', () => {
     let created = { prov: false, dist: false, sub: false };
     try {
       await openCategory(page, cat);
-      const before = Number((await page.locator('main').innerText()).replace(/\s+/g, ' ').match(/PROVINCE (\d+)/)![1]);
+      const before = await provinceTile(page);
 
       // province
       await page.getByRole('button', { name: 'Add Province', exact: true }).click();
@@ -55,7 +68,7 @@ test.describe('Master Data — Province tree', () => {
       await expect(drawer(page)).toBeHidden({ timeout: 15000 });
       await dismissSavedModal(page);
       created.prov = true;
-      await expect.poll(async () => Number((await page.locator('main').innerText()).replace(/\s+/g, ' ').match(/PROVINCE (\d+)/)![1])).toBe(before + 1);
+      await expect.poll(() => provinceTile(page)).toBe(before + 1);
 
       await page.getByPlaceholder(/Search all levels/).fill('QA Test');
       await card(page, prov).click({ force: true });
@@ -100,7 +113,7 @@ test.describe('Master Data — Province tree', () => {
       await deleteSelected(page);
       created.prov = false;
       await expect(card(page, prov)).toHaveCount(0);
-      await expect.poll(async () => Number((await page.locator('main').innerText()).replace(/\s+/g, ' ').match(/PROVINCE (\d+)/)![1])).toBe(before);
+      await expect.poll(() => provinceTile(page)).toBe(before);
     } finally {
       // clean-up in the same session (no reload!): remove whatever is still there, deepest first
       for (const [flag, text] of [['sub', sub], ['dist', dist], ['prov', prov]] as const) {

@@ -31,8 +31,9 @@ function save(file: string, cookies: Cookies) {
 
 async function formLogin(page: Page, email: string, password: string) {
   await page.goto(`${BASE}/login`);
-  await page.getByRole('textbox', { name: 'อีเมล' }).fill(email);
-  await page.getByRole('textbox', { name: 'รหัสผ่าน' }).fill(password);
+  // The labels were Thai ("อีเมล" / "รหัสผ่าน") until the login page was translated ("Email" / "Password"): accept both.
+  await page.getByRole('textbox', { name: /^(อีเมล|Email)/ }).fill(email);
+  await page.getByRole('textbox', { name: /^(รหัสผ่าน|Password)/ }).fill(password);
   await page.getByRole('button', { name: 'Sign In', exact: true }).click();
   // Navigating right after login can race the app's own post-login redirect.
   await expect(page.getByRole('button', { name: 'Log Out' })).toBeVisible();

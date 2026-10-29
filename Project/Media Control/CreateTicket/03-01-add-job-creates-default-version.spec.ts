@@ -18,7 +18,7 @@ test.describe('Job Management', () => {
     // A job card appears with a "1 version" badge, Package selector, Pack quantity (default 1),
     // a Quota indicator, Job Duration inputs and a Job Period date range.
     await expect(page.getByText('1 version', { exact: true })).toBeVisible();
-    await expect(page.getByRole('button', { name: 'Select Package' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Select Sale Package' })).toBeVisible();
     await expect(page.getByRole('textbox', { name: 'Pack Quantity' })).toHaveValue('1');
     await expect(page.getByText('Quota —', { exact: true })).toBeVisible();
     await expect(page.getByRole('textbox', { name: 'Minutes' })).toBeVisible();

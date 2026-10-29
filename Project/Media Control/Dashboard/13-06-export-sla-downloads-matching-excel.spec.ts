@@ -1,4 +1,5 @@
-// กด Export SLA แล้วต้องได้ไฟล์ SLA_Report_DDMMYYYY_HHmm.xlsx ชีต "SLA Report" ที่หัวคอลัมน์ครบ จำนวนแถวตรงกับ "Showing N records" และมี dialog "Export Successful"
+// กด Export SLA แล้วต้องได้ไฟล์ SLA_Report_DDMMYYYY_HHmm.xlsx ชีต "SLA Report" 
+// ที่หัวคอลัมน์ครบ จำนวนแถวตรงกับ "Showing N records" และมี dialog "Export Successful"
 // spec: specs/mediaapproval-dashboard-plan.md (13.6) — PB-2113 BR45 (ไฟล์ตรงกับ preview), PB-2112 2.4 ข้อ 4
 // seed: seed.spec.ts
 

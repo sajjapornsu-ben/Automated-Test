@@ -3,7 +3,7 @@
 // seed: seed.spec.ts
 
 import { test, expect } from '@playwright/test';
-import { login, openCreateTicket, switchToManualMode, fillTicketHeader, closeOpenPopover } from './_helpers';
+import { login, openCreateTicket, switchToManualMode, fillTicketHeader, closeOpenPopover, popover, summary, PACKAGE } from './_helpers';
 
 test.describe('Job Management', () => {
   test('Selecting a Package updates the Ticket summary', async ({ page }) => {
@@ -14,18 +14,18 @@ test.describe('Job Management', () => {
 
     await page.getByRole('button', { name: 'Add Job' }).click();
 
-    await expect(page.getByText('(unset package)', { exact: true })).toBeVisible();
+    await expect(summary(page).getByText('(unset sale package)')).toBeVisible();
 
-    // 2. Select a Package from the dropdown.
-    await page.getByRole('button', { name: 'Select Package' }).click();
-    await page.getByRole('button', { name: 'PlanBTV_80Red (Plan B TV)', exact: true }).click();
+    // 2. Select a Sale Package from the dropdown (the list depends on the Media Type chosen in the header).
+    await page.getByRole('button', { name: 'Select Sale Package' }).click();
+    await popover(page, 'Select Sale Package').getByRole('button', { name: PACKAGE, exact: true }).click();
     await closeOpenPopover(page);
 
     // The Package selector shows the chosen package.
-    await expect(page.getByRole('button', { name: 'Select Package' })).toHaveText('PlanBTV_80Red (Plan B TV)');
+    await expect(page.getByRole('button', { name: 'Select Sale Package' })).toHaveText(PACKAGE);
 
-    // The Ticket summary "Versions" section references the package instead of "(unset package)".
-    await expect(page.getByText('(unset package)', { exact: true })).toHaveCount(0);
-    await expect(page.getByText('PlanBTV_80Red', { exact: true })).toBeVisible();
+    // The Ticket summary "Versions" section references the package instead of "(unset sale package)".
+    await expect(summary(page).getByText('(unset sale package)')).toHaveCount(0);
+    await expect(summary(page)).toContainText(PACKAGE.split(' (')[0]);
   });
 });

@@ -28,14 +28,20 @@ test.describe('Cross-check Head CG — Graphic Workload', () => {
     const sla = (await fetchAll(page, 'sla')).rows;
     const graphicKey = Object.keys(sla[0]).find((k) => /graphic/i.test(k))!;
     const expected: Record<string, number> = Object.fromEntries(STATUS_NAMES.map((n) => [n, 0]));
+    const jobs: Record<string, number> = Object.fromEntries(STATUS_NAMES.map((n) => [n, 0]));
     for (const r of sla) {
       const name = STATUS_NAMES.find((n) => base(n) === base(String(r.status)));
       if (!name) continue; // Draft / Cancelled are not workload columns
       const g = String(r[graphicKey] ?? '').split(',').map((s) => s.trim()).filter((s) => s && s !== '-');
       expected[name] += Math.max(1, g.length);
+      jobs[name] += 1;
     }
     expect(actual, 'workload column sums vs jobs counted once per assigned graphic').toEqual(expected);
-    // Statuses where every job has at most one graphic must also equal the plain job-count cards
-    expect(actual['Done']).toBe(dash.statuses['Done']);
+    // The status cards count jobs once; the workload counts a job once per assigned graphic (multi-assignee BTS jobs count for every CG), so
+    // each workload column is >= its card, and the card itself equals the number of jobs in that status.
+    for (const n of STATUS_NAMES) {
+      expect(dash.statuses[n], `${n} card = jobs in that status`).toBe(jobs[n]);
+      expect(actual[n], `${n} workload column >= card`).toBeGreaterThanOrEqual(dash.statuses[n]);
+    }
   });
 });

@@ -1,4 +1,4 @@
-// กด Export Transaction แล้วต้องได้ Transaction_Report_DDMMYYYY_HHmm.xlsx ชีต "Transaction Report" 26 หัวคอลัมน์ จำนวนแถวตรงกับ "Showing N records"
+// กด Export Transaction แล้วต้องได้ Transaction_Report_DDMMYYYY_HHmm.xlsx ชีต "Transaction Report" 27 หัวคอลัมน์ จำนวนแถวตรงกับ "Showing N records"
 // spec: specs/mediaapproval-dashboard-plan.md (14.5) — PB-2113 BR45
 // seed: seed.spec.ts
 

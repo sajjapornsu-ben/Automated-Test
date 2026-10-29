@@ -11,6 +11,7 @@ const STATUS = /Filter by status$/;
 
 test.describe('Export Report — Billing (PB-2117)', () => {
   test('BIL-H07/H08 media filter is applied to the table and to both sheets', { tag: ['@happy', '@regression'] }, async ({ page }, testInfo) => {
+    test.setTimeout(180000); // reads the whole Billing table, tries each Media filter and exports: > 30 s when UAT or the run is slow
     await loginAs(page, 'headCg');
     await openDashboard(page);
     await goToReport(page, 'Billing');
@@ -42,6 +43,7 @@ test.describe('Export Report — Billing (PB-2117)', () => {
   });
 
   test('BIL-E06 Status = Cancelled shows no billing groups', { tag: ['@edge'] }, async ({ page }) => {
+    test.setTimeout(90000);
     await loginAs(page, 'headCg');
     await openDashboard(page);
     await goToReport(page, 'Billing');
