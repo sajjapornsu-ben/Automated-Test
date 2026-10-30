@@ -138,20 +138,5 @@
   "where": "/report/monthlyReport",
   "kind": "aria-label",
   "text": "เลือกเดือน"
- },
- {
-  "where": "/report/auditLog",
-  "kind": "text",
-  "text": "QA Test จว 608329"
- },
- {
-  "where": "/report/auditLog",
-  "kind": "text",
-  "text": "QA Test อ 608329"
- },
- {
-  "where": "/report/auditLog",
-  "kind": "text",
-  "text": "QA Test ต 608329"
  }
 ]

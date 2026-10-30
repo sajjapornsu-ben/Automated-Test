@@ -1,0 +1,42 @@
+[
+  {
+    "no": "1",
+    "name": "กรกนก ทองแก้ว",
+    "email": "kornkanok.th@planbmedia.co.th",
+    "status": "created",
+    "note": "footer: Media Group 2 | saved checked: Digital, Digital VGI, 1-BTS",
+    "ticked": {
+      "Media Group": [
+        "Digital",
+        "Digital VGI"
+      ],
+      "Media Category": [
+        "1-BTS (ใต้ Digital VGI)"
+      ],
+      "Media Type (คลิกดูเท่านั้น ไม่มี checkbox)": [
+        "BTS On Station (ใต้ 1-BTS)",
+        "BTS E-Poster (ใต้ 1-BTS)",
+        "BTS LCD in Train (ใต้ 1-BTS)",
+        "Office LCD (ใต้ 1-BTS)"
+      ],
+      "Package": [
+        "E-Poster (Vertical) (ใต้ BTS E-Poster)"
+      ]
+    },
+    "skipped": {
+      "Media Type (ไม่มีในระบบ)": [
+        "Maco Digital BTS",
+        "BTS PSD"
+      ],
+      "Package (ไม่มีในระบบ)": [
+        "BTS Ciltyline",
+        "Welcome",
+        "Exit",
+        "BTS E-Poster (Horizontal)",
+        "BTS MAX 2.0 Full",
+        "BTS MAX 2.0 Half A",
+        "BTS MAX 2.0 Half B"
+      ]
+    }
+  }
+]
